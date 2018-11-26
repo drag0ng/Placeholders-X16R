@@ -645,5 +645,7 @@ void OverviewPage::totalRVNClicked()
 void OverviewPage::totalBackRVNClicked()
 {
     ui->frame->hide();
+    ui->frame_2->show();
+    ui->assetFrame->show();
     ui->testTotalRaven->show();
 }
