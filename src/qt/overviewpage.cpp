@@ -369,6 +369,9 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
 
     /** Hide the asset total frame */
     ui->frame->hide();
+    ui->assetFrame->raise();
+    ui->frame_2->raise();
+    ui->frame_2->show();
 
     /** Create the search bar for assets */
     ui->assetSearch->setAttribute(Qt::WA_MacShowFocusRect, 0);
