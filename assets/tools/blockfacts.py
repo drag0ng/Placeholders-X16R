@@ -6,13 +6,13 @@ import subprocess
 import json
 
 
-#Set this to your raven-cli program
-cli = "raven-cli"
+#Set this to your placeh-cli program
+cli = "placeh-cli"
 
 #mode = "-testnet"
 mode = ""
 rpc_port = 8766
-#Set this information in your raven.conf file (in datadir, not testnet3)
+#Set this information in your placeh.conf file (in datadir, not testnet3)
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
 

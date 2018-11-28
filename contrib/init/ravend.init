@@ -1,36 +1,36 @@
 #!/bin/bash
 #
-#  ravend The raven core server.
+#  placehd The placeholder core server.
 #
 #
 # chkconfig: 345 80 20
-# description: ravend
-# processname: ravend
+# description: placehd
+# processname: placehd
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/ravend, see below
-if [ -f /etc/sysconfig/ravend ]; then
-        . /etc/sysconfig/ravend
+# you can override defaults in /etc/sysconfig/placehd, see below
+if [ -f /etc/sysconfig/placehd ]; then
+        . /etc/sysconfig/placehd
 fi
 
 RETVAL=0
 
-prog=ravend
-# you can override the lockfile via RAVEND_LOCKFILE in /etc/sysconfig/ravend
-lockfile=${RAVEND_LOCKFILE-/var/lock/subsys/ravend}
+prog=placehd
+# you can override the lockfile via PLACEHD_LOCKFILE in /etc/sysconfig/placehd
+lockfile=${PLACEHD_LOCKFILE-/var/lock/subsys/placehd}
 
-# ravend defaults to /usr/bin/ravend, override with RAVEND_BIN
-ravend=${RAVEND_BIN-/usr/bin/ravend}
+# placehd defaults to /usr/bin/placehd, override with PLACEHD_BIN
+placehd=${PLACEHD_BIN-/usr/bin/placehd}
 
-# ravend opts default to -disablewallet, override with RAVEND_OPTS
-ravend_opts=${RAVEND_OPTS--disablewallet}
+# placehd opts default to -disablewallet, override with PLACEHD_OPTS
+placehd_opts=${PLACEHD_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "
-    daemon $DAEMONOPTS $ravend $ravend_opts
+    daemon $DAEMONOPTS $placehd $placehd_opts
     RETVAL=$?
     echo
     [ $RETVAL -eq 0 ] && touch $lockfile

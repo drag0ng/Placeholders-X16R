@@ -1,6 +1,6 @@
 [Protocol]
-exec=raven-qt '%u'
-protocol=raven
+exec=placeh-qt '%u'
+protocol=placeh
 input=none
 output=none
 helper=true

@@ -2,41 +2,41 @@
 
 # backward compatibility for existing gentoo layout 
 #
-if [ -d "/var/lib/raven/.raven" ]; then
-	RAVEND_DEFAULT_DATADIR="/var/lib/raven/.raven"
+if [ -d "/var/lib/placeh/.placeh" ]; then
+	PLACEHD_DEFAULT_DATADIR="/var/lib/placeh/.placeh"
 else
-	RAVEND_DEFAULT_DATADIR="/var/lib/ravend"
+	PLACEHD_DEFAULT_DATADIR="/var/lib/placehd"
 fi
 
-RAVEND_CONFIGFILE=${RAVEND_CONFIGFILE:-/etc/raven/raven.conf}
-RAVEND_PIDDIR=${RAVEND_PIDDIR:-/var/run/ravend}
-RAVEND_PIDFILE=${RAVEND_PIDFILE:-${RAVEND_PIDDIR}/ravend.pid}
-RAVEND_DATADIR=${RAVEND_DATADIR:-${RAVEND_DEFAULT_DATADIR}}
-RAVEND_USER=${RAVEND_USER:-${RAVEN_USER:-raven}}
-RAVEND_GROUP=${RAVEND_GROUP:-raven}
-RAVEND_BIN=${RAVEND_BIN:-/usr/bin/ravend}
-RAVEND_NICE=${RAVEND_NICE:-${NICELEVEL:-0}}
-RAVEND_OPTS="${RAVEND_OPTS:-${RAVEN_OPTS}}"
+PLACEHD_CONFIGFILE=${PLACEHD_CONFIGFILE:-/etc/placeh/placeh.conf}
+PLACEHD_PIDDIR=${PLACEHD_PIDDIR:-/var/run/placehd}
+PLACEHD_PIDFILE=${PLACEHD_PIDFILE:-${PLACEHD_PIDDIR}/placehd.pid}
+PLACEHD_DATADIR=${PLACEHD_DATADIR:-${PLACEHD_DEFAULT_DATADIR}}
+PLACEHD_USER=${PLACEHD_USER:-${PLACEH_USER:-placeh}}
+PLACEHD_GROUP=${PLACEHD_GROUP:-placeh}
+PLACEHD_BIN=${PLACEHD_BIN:-/usr/bin/placehd}
+PLACEHD_NICE=${PLACEHD_NICE:-${NICELEVEL:-0}}
+PLACEHD_OPTS="${PLACEHD_OPTS:-${PLACEH_OPTS}}"
 
-name="Raven Core Daemon"
-description="Raven cryptocurrency P2P network daemon"
+name="Placeholder Core Daemon"
+description="Placeh cryptocurrency P2P network daemon"
 
-command="/usr/bin/ravend"
-command_args="-pid=\"${RAVEND_PIDFILE}\" \
-		-conf=\"${RAVEND_CONFIGFILE}\" \
-		-datadir=\"${RAVEND_DATADIR}\" \
+command="/usr/bin/placehd"
+command_args="-pid=\"${PLACEHD_PIDFILE}\" \
+		-conf=\"${PLACEHD_CONFIGFILE}\" \
+		-datadir=\"${PLACEHD_DATADIR}\" \
 		-daemon \
-		${RAVEND_OPTS}"
+		${PLACEHD_OPTS}"
 
-required_files="${RAVEND_CONFIGFILE}"
-start_stop_daemon_args="-u ${RAVEND_USER} \
-			-N ${RAVEND_NICE} -w 2000"
-pidfile="${RAVEND_PIDFILE}"
+required_files="${PLACEHD_CONFIGFILE}"
+start_stop_daemon_args="-u ${PLACEHD_USER} \
+			-N ${PLACEHD_NICE} -w 2000"
+pidfile="${PLACEHD_PIDFILE}"
 
 # The retry schedule to use when stopping the daemon. Could be either
 # a timeout in seconds or multiple signal/timeout pairs (like
 # "SIGKILL/180 SIGTERM/300")
-retry="${RAVEND_SIGTERM_TIMEOUT}"
+retry="${PLACEHD_SIGTERM_TIMEOUT}"
 
 depend() {
 	need localmount net
@@ -50,29 +50,29 @@ start_pre() {
 	checkpath \
 	-d \
 	--mode 0750 \
-	--owner "${RAVEND_USER}:${RAVEND_GROUP}" \
-	"${RAVEND_DATADIR}"
+	--owner "${PLACEHD_USER}:${PLACEHD_GROUP}" \
+	"${PLACEHD_DATADIR}"
 
 	checkpath \
 	-d \
 	--mode 0755 \
-	--owner "${RAVEND_USER}:${RAVEND_GROUP}" \
-	"${RAVEND_PIDDIR}"
+	--owner "${PLACEHD_USER}:${PLACEHD_GROUP}" \
+	"${PLACEHD_PIDDIR}"
 
 	checkpath -f \
-	-o ${RAVEND_USER}:${RAVEND_GROUP} \
+	-o ${PLACEHD_USER}:${PLACEHD_GROUP} \
 	-m 0660 \
-	${RAVEND_CONFIGFILE}
+	${PLACEHD_CONFIGFILE}
 
 	checkconfig || return 1
 }
 
 checkconfig()
 {
-	if ! grep -qs '^rpcpassword=' "${RAVEND_CONFIGFILE}" ; then
+	if ! grep -qs '^rpcpassword=' "${PLACEHD_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run ravend."
-		eerror "The setting must appear in ${RAVEND_CONFIGFILE}"
+		eerror "ERROR: You must set a secure rpcpassword to run placehd."
+		eerror "The setting must appear in ${PLACEHD_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
 		eerror "and must not be the same as the rpcuser setting."
@@ -84,7 +84,7 @@ checkconfig()
 		eerror "It is recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Raven Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Placeh Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

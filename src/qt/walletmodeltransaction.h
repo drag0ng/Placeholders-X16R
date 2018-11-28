@@ -1,10 +1,10 @@
 // Copyright (c) 2011-2014 The Bitcoin Core developers
-// Copyright (c) 2017 The Raven Core developers
+// Copyright (c) 2017 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_WALLETMODELTRANSACTION_H
-#define RAVEN_QT_WALLETMODELTRANSACTION_H
+#ifndef PLACEH_QT_WALLETMODELTRANSACTION_H
+#define PLACEH_QT_WALLETMODELTRANSACTION_H
 
 #include "walletmodel.h"
 
@@ -46,4 +46,4 @@ private:
     CAmount fee;
 };
 
-#endif // RAVEN_QT_WALLETMODELTRANSACTION_H
+#endif // PLACEH_QT_WALLETMODELTRANSACTION_H

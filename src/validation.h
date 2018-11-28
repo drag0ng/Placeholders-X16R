@@ -1,14 +1,14 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Raven Core developers
+// Copyright (c) 2017 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_VALIDATION_H
-#define RAVEN_VALIDATION_H
+#ifndef PLACEH_VALIDATION_H
+#define PLACEH_VALIDATION_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/raven-config.h"
+#include "config/placeh-config.h"
 #endif
 
 #include "amount.h"
@@ -526,4 +526,4 @@ bool AreAssetsDeployed();
 bool IsDGWActive(unsigned int nBlockNumber);
 /** RVN END */
 
-#endif // RAVEN_VALIDATION_H
+#endif // PLACEH_VALIDATION_H

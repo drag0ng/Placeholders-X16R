@@ -1,10 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Raven Core developers
+// Copyright (c) 2017 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_RAVENUNITS_H
-#define RAVEN_QT_RAVENUNITS_H
+#ifndef PLACEH_QT_PLACEHUNITS_H
+#define PLACEH_QT_PLACEHUNITS_H
 
 #include "amount.h"
 
@@ -47,18 +47,18 @@
 #define THIN_SP_UTF8 REAL_THIN_SP_UTF8
 #define THIN_SP_HTML HTML_HACK_SP
 
-/** Raven unit definitions. Encapsulates parsing and formatting
+/** Placeh unit definitions. Encapsulates parsing and formatting
    and serves as list model for drop-down selection boxes.
 */
-class RavenUnits: public QAbstractListModel
+class PlacehUnits: public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit RavenUnits(QObject *parent);
+    explicit PlacehUnits(QObject *parent);
 
-    /** Raven units.
-      @note Source: https://en.raven.it/wiki/Units . Please add only sensible ones
+    /** Placeh units.
+      @note Source: https://en.placeh.it/wiki/Units . Please add only sensible ones
      */
     enum Unit
     {
@@ -129,8 +129,8 @@ public:
     static CAmount maxMoney();
 
 private:
-    QList<RavenUnits::Unit> unitlist;
+    QList<PlacehUnits::Unit> unitlist;
 };
-typedef RavenUnits::Unit RavenUnit;
+typedef PlacehUnits::Unit PlacehUnit;
 
-#endif // RAVEN_QT_RAVENUNITS_H
+#endif // PLACEH_QT_PLACEHUNITS_H

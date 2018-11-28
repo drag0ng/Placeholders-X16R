@@ -1,10 +1,10 @@
 // Copyright (c) 2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Raven Core developers
+// Copyright (c) 2017 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_WALLET_RPCWALLET_H
-#define RAVEN_WALLET_RPCWALLET_H
+#ifndef PLACEH_WALLET_RPCWALLET_H
+#define PLACEH_WALLET_RPCWALLET_H
 
 #include <string>
 
@@ -26,4 +26,4 @@ std::string HelpRequiringPassphrase(CWallet *);
 void EnsureWalletIsUnlocked(CWallet *);
 bool EnsureWalletIsAvailable(CWallet *, bool avoidException);
 
-#endif //RAVEN_WALLET_RPCWALLET_H
+#endif //PLACEH_WALLET_RPCWALLET_H

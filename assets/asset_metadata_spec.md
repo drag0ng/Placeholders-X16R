@@ -1,6 +1,6 @@
-## Ravencoin Metadata Specification
+## Placehcoin Metadata Specification
 
-Additional fields may be added, but will be ignored by Ravencoin.
+Additional fields may be added, but will be ignored by Placehcoin.
 
 ```
 {
@@ -9,7 +9,7 @@ Additional fields may be added, but will be ignored by Ravencoin.
 
    "contract_hash": "<SHA256 hash in hex of contract_url contents>",
 
-   "contract_signature": "<Ravencoin signed contract_hash>",
+   "contract_signature": "<Placehcoin signed contract_hash>",
 
    "contract_address": "R9x4u22ru3zm5v8suWiXNji4ENWSG7eYkx",
 
@@ -88,4 +88,4 @@ All fields are optional. Clients, explorers, and wallets are not obligated to di
 
 **forsale_price** - To give buyers an idea of the cost to own and admin the asset token.   Price followed by a space, followed by the currency.  Examples: "10000 RVN" or "0.3 BTC" or "50000 USD"  This might be parsed by token broker websites.
 
-**restricted** - Designate the token as being restricted.  One example is "rule144" which means sale may be restricted because of the type of token and the exemption used for issuance.  Other restrictions types can be used here as a signal to explorers, exchanges, or token brokers.  No enforcement of restrictions is built into the Ravencoin protocol. 
+**restricted** - Designate the token as being restricted.  One example is "rule144" which means sale may be restricted because of the type of token and the exemption used for issuance.  Other restrictions types can be used here as a signal to explorers, exchanges, or token brokers.  No enforcement of restrictions is built into the Placehcoin protocol. 

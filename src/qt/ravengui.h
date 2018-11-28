@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Raven Core developers
+// Copyright (c) 2017 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_RAVENGUI_H
-#define RAVEN_QT_RAVENGUI_H
+#ifndef PLACEH_QT_PLACEHGUI_H
+#define PLACEH_QT_PLACEHGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/raven-config.h"
+#include "config/placeh-config.h"
 #endif
 
 #include "amount.h"
@@ -39,10 +39,10 @@ class QProgressDialog;
 QT_END_NAMESPACE
 
 /**
-  Raven GUI main class. This class represents the main window of the Raven UI. It communicates with both the client and
+  Placeh GUI main class. This class represents the main window of the Placeh UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class RavenGUI : public QMainWindow
+class PlacehGUI : public QMainWindow
 {
     Q_OBJECT
 
@@ -50,8 +50,8 @@ public:
     static const QString DEFAULT_WALLET;
     static const std::string DEFAULT_UIPLATFORM;
 
-    explicit RavenGUI(const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
-    ~RavenGUI();
+    explicit PlacehGUI(const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
+    ~PlacehGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
@@ -60,7 +60,7 @@ public:
 
 #ifdef ENABLE_WALLET
     /** Set the wallet model.
-        The wallet model represents a raven wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a placeh wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     bool addWallet(const QString& name, WalletModel *walletModel);
@@ -286,4 +286,4 @@ private Q_SLOTS:
     void onMenuSelection(QAction* action);
 };
 
-#endif // RAVEN_QT_RAVENGUI_H
+#endif // PLACEH_QT_PLACEHGUI_H

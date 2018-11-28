@@ -1,15 +1,15 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Raven Core developers
+// Copyright (c) 2017 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/raven-config.h"
+#include "config/placeh-config.h"
 #endif
 
-#include "ravengui.h"
+#include "placehgui.h"
 
-#include "ravenunits.h"
+#include "placehunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -69,7 +69,7 @@
 
 #endif
 
-const std::string RavenGUI::DEFAULT_UIPLATFORM =
+const std::string PlacehGUI::DEFAULT_UIPLATFORM =
 #if defined(Q_OS_MAC)
         "macosx"
 #elif defined(Q_OS_WIN)
@@ -81,9 +81,9 @@ const std::string RavenGUI::DEFAULT_UIPLATFORM =
 
 /** Display name for default wallet name. Uses tilde to avoid name
  * collisions in the future with additional wallets */
-const QString RavenGUI::DEFAULT_WALLET = "~Default";
+const QString PlacehGUI::DEFAULT_WALLET = "~Default";
 
-RavenGUI::RavenGUI(const PlatformStyle *_platformStyle, const NetworkStyle *networkStyle, QWidget *parent) :
+PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *networkStyle, QWidget *parent) :
     QMainWindow(parent),
     enableWallet(false),
     clientModel(0),
@@ -267,7 +267,7 @@ RavenGUI::RavenGUI(const PlatformStyle *_platformStyle, const NetworkStyle *netw
 #endif
 }
 
-RavenGUI::~RavenGUI()
+PlacehGUI::~PlacehGUI()
 {
     // Unsubscribe from notifications from core
     unsubscribeFromCoreSignals();
@@ -284,7 +284,7 @@ RavenGUI::~RavenGUI()
     delete rpcConsole;
 }
 
-void RavenGUI::createActions()
+void PlacehGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
@@ -296,7 +296,7 @@ void RavenGUI::createActions()
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send coins to a Raven address"));
+    sendCoinsAction->setStatusTip(tr("Send coins to a Placeh address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
@@ -307,7 +307,7 @@ void RavenGUI::createActions()
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
     receiveCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/receiving_addresses"), tr("&Receive"), this);
-    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and raven: URIs)"));
+    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and placeh: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
@@ -378,9 +378,9 @@ void RavenGUI::createActions()
     changePassphraseAction = new QAction(platformStyle->TextColorIcon(":/icons/key"), tr("&Change Passphrase..."), this);
     changePassphraseAction->setStatusTip(tr("Change the passphrase used for wallet encryption"));
     signMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/edit"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your Raven addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your Placeh addresses to prove you own them"));
     verifyMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/verify"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Raven addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Placeh addresses"));
 
     openRPCConsoleAction = new QAction(platformStyle->TextColorIcon(":/icons/debugwindow"), tr("&Debug window"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging and diagnostic console"));
@@ -393,11 +393,11 @@ void RavenGUI::createActions()
     usedReceivingAddressesAction->setStatusTip(tr("Show the list of used receiving addresses and labels"));
 
     openAction = new QAction(platformStyle->TextColorIcon(":/icons/open"), tr("Open &URI..."), this);
-    openAction->setStatusTip(tr("Open a raven: URI or payment request"));
+    openAction->setStatusTip(tr("Open a placeh: URI or payment request"));
 
     showHelpMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/info"), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
-    showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible Raven command-line options").arg(tr(PACKAGE_NAME)));
+    showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible Placeh command-line options").arg(tr(PACKAGE_NAME)));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
@@ -427,7 +427,7 @@ void RavenGUI::createActions()
     new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_D), this, SLOT(showDebugWindow()));
 }
 
-void RavenGUI::createMenuBar()
+void PlacehGUI::createMenuBar()
 {
 #ifdef Q_OS_MAC
     // Create a decoupled menu bar on Mac which stays even if the window is closed
@@ -472,7 +472,7 @@ void RavenGUI::createMenuBar()
     help->addAction(aboutQtAction);
 }
 
-void RavenGUI::createToolBars()
+void PlacehGUI::createToolBars()
 {
     if(walletFrame)
     {
@@ -492,7 +492,7 @@ void RavenGUI::createToolBars()
     }
 }
 
-void RavenGUI::setClientModel(ClientModel *_clientModel)
+void PlacehGUI::setClientModel(ClientModel *_clientModel)
 {
     this->clientModel = _clientModel;
     if(_clientModel)
@@ -555,7 +555,7 @@ void RavenGUI::setClientModel(ClientModel *_clientModel)
 }
 
 #ifdef ENABLE_WALLET
-bool RavenGUI::addWallet(const QString& name, WalletModel *walletModel)
+bool PlacehGUI::addWallet(const QString& name, WalletModel *walletModel)
 {
     if(!walletFrame)
         return false;
@@ -563,14 +563,14 @@ bool RavenGUI::addWallet(const QString& name, WalletModel *walletModel)
     return walletFrame->addWallet(name, walletModel);
 }
 
-bool RavenGUI::setCurrentWallet(const QString& name)
+bool PlacehGUI::setCurrentWallet(const QString& name)
 {
     if(!walletFrame)
         return false;
     return walletFrame->setCurrentWallet(name);
 }
 
-void RavenGUI::removeAllWallets()
+void PlacehGUI::removeAllWallets()
 {
     if(!walletFrame)
         return;
@@ -579,7 +579,7 @@ void RavenGUI::removeAllWallets()
 }
 #endif // ENABLE_WALLET
 
-void RavenGUI::setWalletActionsEnabled(bool enabled)
+void PlacehGUI::setWalletActionsEnabled(bool enabled)
 {
     overviewAction->setEnabled(enabled);
     sendCoinsAction->setEnabled(enabled);
@@ -601,7 +601,7 @@ void RavenGUI::setWalletActionsEnabled(bool enabled)
     /** RVN END */
 }
 
-void RavenGUI::createTrayIcon(const NetworkStyle *networkStyle)
+void PlacehGUI::createTrayIcon(const NetworkStyle *networkStyle)
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
@@ -614,7 +614,7 @@ void RavenGUI::createTrayIcon(const NetworkStyle *networkStyle)
     notificator = new Notificator(QApplication::applicationName(), trayIcon, this);
 }
 
-void RavenGUI::createTrayIconMenu()
+void PlacehGUI::createTrayIconMenu()
 {
 #ifndef Q_OS_MAC
     // return if trayIcon is unset (only on non-Mac OSes)
@@ -651,7 +651,7 @@ void RavenGUI::createTrayIconMenu()
 }
 
 #ifndef Q_OS_MAC
-void RavenGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
+void PlacehGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if(reason == QSystemTrayIcon::Trigger)
     {
@@ -661,7 +661,7 @@ void RavenGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 }
 #endif
 
-void RavenGUI::optionsClicked()
+void PlacehGUI::optionsClicked()
 {
     if(!clientModel || !clientModel->getOptionsModel())
         return;
@@ -671,7 +671,7 @@ void RavenGUI::optionsClicked()
     dlg.exec();
 }
 
-void RavenGUI::aboutClicked()
+void PlacehGUI::aboutClicked()
 {
     if(!clientModel)
         return;
@@ -680,7 +680,7 @@ void RavenGUI::aboutClicked()
     dlg.exec();
 }
 
-void RavenGUI::showDebugWindow()
+void PlacehGUI::showDebugWindow()
 {
     rpcConsole->showNormal();
     rpcConsole->show();
@@ -688,19 +688,19 @@ void RavenGUI::showDebugWindow()
     rpcConsole->activateWindow();
 }
 
-void RavenGUI::showDebugWindowActivateConsole()
+void PlacehGUI::showDebugWindowActivateConsole()
 {
     rpcConsole->setTabFocus(RPCConsole::TAB_CONSOLE);
     showDebugWindow();
 }
 
-void RavenGUI::showHelpMessageClicked()
+void PlacehGUI::showHelpMessageClicked()
 {
     helpMessageDialog->show();
 }
 
 #ifdef ENABLE_WALLET
-void RavenGUI::openClicked()
+void PlacehGUI::openClicked()
 {
     OpenURIDialog dlg(this);
     if(dlg.exec())
@@ -709,42 +709,42 @@ void RavenGUI::openClicked()
     }
 }
 
-void RavenGUI::gotoOverviewPage()
+void PlacehGUI::gotoOverviewPage()
 {
     overviewAction->setChecked(true);
     if (walletFrame) walletFrame->gotoOverviewPage();
 }
 
-void RavenGUI::gotoHistoryPage()
+void PlacehGUI::gotoHistoryPage()
 {
     historyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
 }
 
-void RavenGUI::gotoReceiveCoinsPage()
+void PlacehGUI::gotoReceiveCoinsPage()
 {
     receiveCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoReceiveCoinsPage();
 }
 
-void RavenGUI::gotoSendCoinsPage(QString addr)
+void PlacehGUI::gotoSendCoinsPage(QString addr)
 {
     sendCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoSendCoinsPage(addr);
 }
 
-void RavenGUI::gotoSignMessageTab(QString addr)
+void PlacehGUI::gotoSignMessageTab(QString addr)
 {
     if (walletFrame) walletFrame->gotoSignMessageTab(addr);
 }
 
-void RavenGUI::gotoVerifyMessageTab(QString addr)
+void PlacehGUI::gotoVerifyMessageTab(QString addr)
 {
     if (walletFrame) walletFrame->gotoVerifyMessageTab(addr);
 }
 
 /** RVN START */
-void RavenGUI::gotoAssetsPage()
+void PlacehGUI::gotoAssetsPage()
 {
     assetAction->setChecked(true);
     if (walletFrame) walletFrame->gotoAssetsPage();
@@ -752,7 +752,7 @@ void RavenGUI::gotoAssetsPage()
 /** RVN END */
 #endif // ENABLE_WALLET
 
-void RavenGUI::updateNetworkState()
+void PlacehGUI::updateNetworkState()
 {
     int count = clientModel->getNumConnections();
     QString icon;
@@ -768,7 +768,7 @@ void RavenGUI::updateNetworkState()
     QString tooltip;
 
     if (clientModel->getNetworkActive()) {
-        tooltip = tr("%n active connection(s) to Raven network", "", count) + QString(".<br>") + tr("Click to disable network activity.");
+        tooltip = tr("%n active connection(s) to Placeh network", "", count) + QString(".<br>") + tr("Click to disable network activity.");
     } else {
         tooltip = tr("Network activity disabled.") + QString("<br>") + tr("Click to enable network activity again.");
         icon = ":/icons/network_disabled";
@@ -781,17 +781,17 @@ void RavenGUI::updateNetworkState()
     connectionsControl->setPixmap(platformStyle->SingleColorIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
 }
 
-void RavenGUI::setNumConnections(int count)
+void PlacehGUI::setNumConnections(int count)
 {
     updateNetworkState();
 }
 
-void RavenGUI::setNetworkActive(bool networkActive)
+void PlacehGUI::setNetworkActive(bool networkActive)
 {
     updateNetworkState();
 }
 
-void RavenGUI::updateHeadersSyncProgressLabel()
+void PlacehGUI::updateHeadersSyncProgressLabel()
 {
     int64_t headersTipTime = clientModel->getHeaderTipTime();
     int headersTipHeight = clientModel->getHeaderTipHeight();
@@ -800,7 +800,7 @@ void RavenGUI::updateHeadersSyncProgressLabel()
         progressBarLabel->setText(tr("Syncing Headers (%1%)...").arg(QString::number(100.0 / (headersTipHeight+estHeadersLeft)*headersTipHeight, 'f', 1)));
 }
 
-void RavenGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVerificationProgress, bool header)
+void PlacehGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVerificationProgress, bool header)
 {
     if (modalOverlay)
     {
@@ -917,9 +917,9 @@ void RavenGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVerif
     progressBar->setToolTip(tooltip);
 }
 
-void RavenGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
+void PlacehGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
 {
-    QString strTitle = tr("Raven"); // default title
+    QString strTitle = tr("Placeh"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
@@ -945,7 +945,7 @@ void RavenGUI::message(const QString &title, const QString &message, unsigned in
             break;
         }
     }
-    // Append title to "Raven - "
+    // Append title to "Placeh - "
     if (!msgType.isEmpty())
         strTitle += " - " + msgType;
 
@@ -976,7 +976,7 @@ void RavenGUI::message(const QString &title, const QString &message, unsigned in
         notificator->notify((Notificator::Class)nNotifyIcon, strTitle, message);
 }
 
-void RavenGUI::changeEvent(QEvent *e)
+void PlacehGUI::changeEvent(QEvent *e)
 {
     QMainWindow::changeEvent(e);
 #ifndef Q_OS_MAC // Ignored on Mac
@@ -995,7 +995,7 @@ void RavenGUI::changeEvent(QEvent *e)
 #endif
 }
 
-void RavenGUI::closeEvent(QCloseEvent *event)
+void PlacehGUI::closeEvent(QCloseEvent *event)
 {
 #ifndef Q_OS_MAC // Ignored on Mac
     if(clientModel && clientModel->getOptionsModel())
@@ -1018,7 +1018,7 @@ void RavenGUI::closeEvent(QCloseEvent *event)
 #endif
 }
 
-void RavenGUI::showEvent(QShowEvent *event)
+void PlacehGUI::showEvent(QShowEvent *event)
 {
     // enable the debug window when the main window shows up
     openRPCConsoleAction->setEnabled(true);
@@ -1027,14 +1027,14 @@ void RavenGUI::showEvent(QShowEvent *event)
 }
 
 #ifdef ENABLE_WALLET
-void RavenGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address, const QString& label, const QString& assetName)
+void PlacehGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address, const QString& label, const QString& assetName)
 {
     // On new transaction, make an info balloon
     QString msg = tr("Date: %1\n").arg(date);
     if (assetName == "RVN")
-        msg += tr("Amount: %1\n").arg(RavenUnits::formatWithUnit(unit, amount, true));
+        msg += tr("Amount: %1\n").arg(PlacehUnits::formatWithUnit(unit, amount, true));
     else
-        msg += tr("Amount: %1\n").arg(RavenUnits::formatWithCustomName(assetName, amount, MAX_ASSET_UNITS, true));
+        msg += tr("Amount: %1\n").arg(PlacehUnits::formatWithCustomName(assetName, amount, MAX_ASSET_UNITS, true));
 
     msg += tr("Type: %1\n").arg(type);
     
@@ -1046,7 +1046,7 @@ void RavenGUI::incomingTransaction(const QString& date, int unit, const CAmount&
              msg, CClientUIInterface::MSG_INFORMATION);
 }
 
-void RavenGUI::checkAssets()
+void PlacehGUI::checkAssets()
 {
     // Check that status of RIP2 and activate the assets icon if it is active
     if(AreAssetsDeployed()) {
@@ -1061,14 +1061,14 @@ void RavenGUI::checkAssets()
 }
 #endif // ENABLE_WALLET
 
-void RavenGUI::dragEnterEvent(QDragEnterEvent *event)
+void PlacehGUI::dragEnterEvent(QDragEnterEvent *event)
 {
     // Accept only URIs
     if(event->mimeData()->hasUrls())
         event->acceptProposedAction();
 }
 
-void RavenGUI::dropEvent(QDropEvent *event)
+void PlacehGUI::dropEvent(QDropEvent *event)
 {
     if(event->mimeData()->hasUrls())
     {
@@ -1080,7 +1080,7 @@ void RavenGUI::dropEvent(QDropEvent *event)
     event->acceptProposedAction();
 }
 
-bool RavenGUI::eventFilter(QObject *object, QEvent *event)
+bool PlacehGUI::eventFilter(QObject *object, QEvent *event)
 {
     // Catch status tip events
     if (event->type() == QEvent::StatusTip)
@@ -1093,7 +1093,7 @@ bool RavenGUI::eventFilter(QObject *object, QEvent *event)
 }
 
 #ifdef ENABLE_WALLET
-bool RavenGUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
+bool PlacehGUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
 {
     // URI has to be valid
     if (walletFrame && walletFrame->handlePaymentRequest(recipient))
@@ -1105,7 +1105,7 @@ bool RavenGUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
     return false;
 }
 
-void RavenGUI::setHDStatus(int hdEnabled)
+void PlacehGUI::setHDStatus(int hdEnabled)
 {
     labelWalletHDStatusIcon->setPixmap(platformStyle->SingleColorIcon(hdEnabled ? ":/icons/hd_enabled" : ":/icons/hd_disabled").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
     labelWalletHDStatusIcon->setToolTip(hdEnabled ? tr("HD key generation is <b>enabled</b>") : tr("HD key generation is <b>disabled</b>"));
@@ -1114,7 +1114,7 @@ void RavenGUI::setHDStatus(int hdEnabled)
     labelWalletHDStatusIcon->setEnabled(hdEnabled);
 }
 
-void RavenGUI::setEncryptionStatus(int status)
+void PlacehGUI::setEncryptionStatus(int status)
 {
     switch(status)
     {
@@ -1144,7 +1144,7 @@ void RavenGUI::setEncryptionStatus(int status)
 }
 #endif // ENABLE_WALLET
 
-void RavenGUI::showNormalIfMinimized(bool fToggleHidden)
+void PlacehGUI::showNormalIfMinimized(bool fToggleHidden)
 {
     if(!clientModel)
         return;
@@ -1169,12 +1169,12 @@ void RavenGUI::showNormalIfMinimized(bool fToggleHidden)
         hide();
 }
 
-void RavenGUI::toggleHidden()
+void PlacehGUI::toggleHidden()
 {
     showNormalIfMinimized(true);
 }
 
-void RavenGUI::detectShutdown()
+void PlacehGUI::detectShutdown()
 {
     if (ShutdownRequested())
     {
@@ -1184,7 +1184,7 @@ void RavenGUI::detectShutdown()
     }
 }
 
-void RavenGUI::showProgress(const QString &title, int nProgress)
+void PlacehGUI::showProgress(const QString &title, int nProgress)
 {
     if (nProgress == 0)
     {
@@ -1207,7 +1207,7 @@ void RavenGUI::showProgress(const QString &title, int nProgress)
         progressDialog->setValue(nProgress);
 }
 
-void RavenGUI::setTrayIconVisible(bool fHideTrayIcon)
+void PlacehGUI::setTrayIconVisible(bool fHideTrayIcon)
 {
     if (trayIcon)
     {
@@ -1215,13 +1215,13 @@ void RavenGUI::setTrayIconVisible(bool fHideTrayIcon)
     }
 }
 
-void RavenGUI::showModalOverlay()
+void PlacehGUI::showModalOverlay()
 {
     if (modalOverlay && (progressBar->isVisible() || modalOverlay->isLayerVisible()))
         modalOverlay->toggleVisibility();
 }
 
-static bool ThreadSafeMessageBox(RavenGUI *gui, const std::string& message, const std::string& caption, unsigned int style)
+static bool ThreadSafeMessageBox(PlacehGUI *gui, const std::string& message, const std::string& caption, unsigned int style)
 {
     bool modal = (style & CClientUIInterface::MODAL);
     // The SECURE flag has no effect in the Qt GUI.
@@ -1238,21 +1238,21 @@ static bool ThreadSafeMessageBox(RavenGUI *gui, const std::string& message, cons
     return ret;
 }
 
-void RavenGUI::subscribeToCoreSignals()
+void PlacehGUI::subscribeToCoreSignals()
 {
     // Connect signals to client
     uiInterface.ThreadSafeMessageBox.connect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
     uiInterface.ThreadSafeQuestion.connect(boost::bind(ThreadSafeMessageBox, this, _1, _3, _4));
 }
 
-void RavenGUI::unsubscribeFromCoreSignals()
+void PlacehGUI::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from client
     uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
     uiInterface.ThreadSafeQuestion.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _3, _4));
 }
 
-void RavenGUI::toggleNetworkActive()
+void PlacehGUI::toggleNetworkActive()
 {
     if (clientModel) {
         clientModel->setNetworkActive(!clientModel->getNetworkActive());
@@ -1265,12 +1265,12 @@ UnitDisplayStatusBarControl::UnitDisplayStatusBarControl(const PlatformStyle *pl
 {
     createContextMenu();
     setToolTip(tr("Unit to show amounts in. Click to select another unit."));
-    QList<RavenUnits::Unit> units = RavenUnits::availableUnits();
+    QList<PlacehUnits::Unit> units = PlacehUnits::availableUnits();
     int max_width = 0;
     const QFontMetrics fm(font());
-    for (const RavenUnits::Unit unit : units)
+    for (const PlacehUnits::Unit unit : units)
     {
-        max_width = qMax(max_width, fm.width(RavenUnits::name(unit)));
+        max_width = qMax(max_width, fm.width(PlacehUnits::name(unit)));
     }
     setMinimumSize(max_width, 0);
     setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -1287,9 +1287,9 @@ void UnitDisplayStatusBarControl::mousePressEvent(QMouseEvent *event)
 void UnitDisplayStatusBarControl::createContextMenu()
 {
     menu = new QMenu(this);
-    for (RavenUnits::Unit u : RavenUnits::availableUnits())
+    for (PlacehUnits::Unit u : PlacehUnits::availableUnits())
     {
-        QAction *menuAction = new QAction(QString(RavenUnits::name(u)), this);
+        QAction *menuAction = new QAction(QString(PlacehUnits::name(u)), this);
         menuAction->setData(QVariant(u));
         menu->addAction(menuAction);
     }
@@ -1314,7 +1314,7 @@ void UnitDisplayStatusBarControl::setOptionsModel(OptionsModel *_optionsModel)
 /** When Display Units are changed on OptionsModel it will refresh the display text of the control on the status bar */
 void UnitDisplayStatusBarControl::updateDisplayUnit(int newUnits)
 {
-    setText(RavenUnits::name(newUnits));
+    setText(PlacehUnits::name(newUnits));
 }
 
 /** Shows context menu with Display Unit options by the mouse coordinates */

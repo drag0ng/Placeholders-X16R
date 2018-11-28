@@ -1,33 +1,33 @@
-# /etc/conf.d/ravend: config file for /etc/init.d/ravend
+# /etc/conf.d/placehd: config file for /etc/init.d/placehd
 
 # Config file location
-#RAVEND_CONFIGFILE="/etc/raven/raven.conf"
+#PLACEHD_CONFIGFILE="/etc/placeh/placeh.conf"
 
-# What directory to write pidfile to?  (created and owned by $RAVEND_USER)
-#RAVEND_PIDDIR="/var/run/ravend"
+# What directory to write pidfile to?  (created and owned by $PLACEHD_USER)
+#PLACEHD_PIDDIR="/var/run/placehd"
 
 # What filename to give the pidfile
-#RAVEND_PIDFILE="${RAVEND_PIDDIR}/ravend.pid"
+#PLACEHD_PIDFILE="${PLACEHD_PIDDIR}/placehd.pid"
 
-# Where to write ravend data (be mindful that the blockchain is large)
-#RAVEND_DATADIR="/var/lib/ravend"
+# Where to write placehd data (be mindful that the blockchain is large)
+#PLACEHD_DATADIR="/var/lib/placehd"
 
-# User and group to own ravend process
-#RAVEND_USER="raven"
-#RAVEND_GROUP="raven"
+# User and group to own placehd process
+#PLACEHD_USER="placeh"
+#PLACEHD_GROUP="placeh"
 
-# Path to ravend executable
-#RAVEND_BIN="/usr/bin/ravend"
+# Path to placehd executable
+#PLACEHD_BIN="/usr/bin/placehd"
 
-# Nice value to run ravend under
-#RAVEND_NICE=0
+# Nice value to run placehd under
+#PLACEHD_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)
-#RAVEND_OPTS=""
+#PLACEHD_OPTS=""
 
-# The timeout in seconds OpenRC will wait for ravend to terminate
+# The timeout in seconds OpenRC will wait for placehd to terminate
 # after a SIGTERM has been raised.
 # Note that this will be mapped as argument to start-stop-daemon's
 # '--retry' option, which means you can specify a retry schedule
 # here. For more information see man 8 start-stop-daemon.
-RAVEND_SIGTERM_TIMEOUT=60
+PLACEHD_SIGTERM_TIMEOUT=60

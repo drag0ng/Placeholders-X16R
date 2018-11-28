@@ -1,15 +1,15 @@
 [Unit]
-Description=Raven's distributed currency daemon
+Description=Placeh's distributed currency daemon
 After=network.target
 
 [Service]
-User=raven
-Group=raven
+User=placeh
+Group=placeh
 
 Type=forking
-PIDFile=/var/lib/ravend/ravend.pid
-ExecStart=/usr/bin/ravend -daemon -pid=/var/lib/ravend/ravend.pid \
--conf=/etc/raven/raven.conf -datadir=/var/lib/ravend -disablewallet
+PIDFile=/var/lib/placehd/placehd.pid
+ExecStart=/usr/bin/placehd -daemon -pid=/var/lib/placehd/placehd.pid \
+-conf=/etc/placeh/placeh.conf -datadir=/var/lib/placehd -disablewallet
 
 Restart=always
 PrivateTmp=true

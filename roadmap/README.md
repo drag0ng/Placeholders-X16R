@@ -1,8 +1,8 @@
-# Ravencoin Roadmap
+# Placehcoin Roadmap
 
 ### Phase 1 - Complete
 
-Ravencoin (RVN) is a Proof of Work coin built on the Bitcoin UTXO model. As with other Bitcoin derivatives, RVN coins are distributed to persons augmenting the Raven network by mining Raven.
+Placehcoin (RVN) is a Proof of Work coin built on the Bitcoin UTXO model. As with other Bitcoin derivatives, RVN coins are distributed to persons augmenting the Placeh network by mining Placeh.
 *  x1000 coin distribution (21 Billion Total)
 *  10x faster blocks (1 per minute)
 *  In app CPU mining
@@ -15,11 +15,11 @@ Ravencoin (RVN) is a Proof of Work coin built on the Bitcoin UTXO model. As with
 
 #### ASIC Resistance
 
-ASIC Resistance - A published commitment to continual attempts at ASIC resistance. If ASICs are created for x16r, then we will, at a specific block number, modify one of the algorithms to add some varients of Equihash or similar efforts to increase the resistance to ASIC miners for Raven.
+ASIC Resistance - A published commitment to continual attempts at ASIC resistance. If ASICs are created for x16r, then we will, at a specific block number, modify one of the algorithms to add some varients of Equihash or similar efforts to increase the resistance to ASIC miners for Placeh.
 
 #### Asset Support
 
-Ravencoin will be a hard fork that extends Raven to include the ability to issue and transfer assets. The expected release of asset capabilities will be approximately seven months after the release of RVN. Raven will be extended to allow issuing, reissuing, and transfer of assets. Assets can be reissuable or limited to a set supply at the point of issuance. The cost to create assets will be 500 RVN to create any qty of an asset. Each asset name must be unique. Asset names will be limited to A-Z and 0-9, '_' and '.' and must be at least three characters long. The '.' and the '_' cannot be the first, or the last character, or be consecutive.  
+Placehcoin will be a hard fork that extends Placeh to include the ability to issue and transfer assets. The expected release of asset capabilities will be approximately seven months after the release of RVN. Placeh will be extended to allow issuing, reissuing, and transfer of assets. Assets can be reissuable or limited to a set supply at the point of issuance. The cost to create assets will be 500 RVN to create any qty of an asset. Each asset name must be unique. Asset names will be limited to A-Z and 0-9, '_' and '.' and must be at least three characters long. The '.' and the '_' cannot be the first, or the last character, or be consecutive.  
 
 Examples of valid assets:  
 THE_GAME  
@@ -51,7 +51,7 @@ Example: A small software company issues an asset GAMECO that represents a share
 
 #### Block Size
 
-Raven may increase the blocksize from 1 MB to X MB to allow for more on-chain transactions.
+Placeh may increase the blocksize from 1 MB to X MB to allow for more on-chain transactions.
 
 ### Phase 3 - Rewards
 
@@ -111,7 +111,7 @@ This returns details for a specific asset transaction.
 This returns a list of transactions for a given asset.  
 
 `reward(from_address, asset, amount, except=[])`  
-Sends RVN to holders of the the specified asset. The Raven is split pro-rata to holders of the asset. Any remainder that cannot be evenly divided to the satoshi (1/100,000,000 RVN) level will be added to the mining fee. ​except​ is a list of addresses to exclude from the distribution - used so that you could exclude treasury shares that do not participate in the reward.  
+Sends RVN to holders of the the specified asset. The Placeh is split pro-rata to holders of the asset. Any remainder that cannot be evenly divided to the satoshi (1/100,000,000 RVN) level will be added to the mining fee. ​except​ is a list of addresses to exclude from the distribution - used so that you could exclude treasury shares that do not participate in the reward.  
 
 `send_asset(from_address, from_asset, to_asset, amount, except=[])`  
 Sends an asset to holders of the the specified to_asset. This can be used to send a voting token to holders of an asset. Combined with a messaging protocol explaining the vote, it could act as a distributed voting system.

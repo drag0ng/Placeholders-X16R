@@ -1,10 +1,10 @@
-// Copyright (c) 2018 The Raven Core developers
+// Copyright (c) 2018 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 // Created by Jeremy Anderson on 5/15/18.
 
-#ifndef RAVENCOIN_NEWASSET_H
-#define RAVENCOIN_NEWASSET_H
+#ifndef PLACEHCOIN_NEWASSET_H
+#define PLACEHCOIN_NEWASSET_H
 
 #include <string>
 #include <sstream>
@@ -468,4 +468,4 @@ private:
     size_t maxSize;
 };
 
-#endif //RAVENCOIN_NEWASSET_H
+#endif //PLACEHCOIN_NEWASSET_H

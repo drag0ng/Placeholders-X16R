@@ -1,16 +1,16 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Raven Core developers
+// Copyright (c) 2017 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_WALLETVIEW_H
-#define RAVEN_QT_WALLETVIEW_H
+#ifndef PLACEH_QT_WALLETVIEW_H
+#define PLACEH_QT_WALLETVIEW_H
 
 #include "amount.h"
 
 #include <QStackedWidget>
 
-class RavenGUI;
+class PlacehGUI;
 class ClientModel;
 class OverviewPage;
 class PlatformStyle;
@@ -41,13 +41,13 @@ public:
     explicit WalletView(const PlatformStyle *platformStyle, QWidget *parent);
     ~WalletView();
 
-    void setRavenGUI(RavenGUI *gui);
+    void setPlacehGUI(PlacehGUI *gui);
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
-        The wallet model represents a raven wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a placeh wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);
@@ -145,4 +145,4 @@ Q_SIGNALS:
     void checkAssets();
 };
 
-#endif // RAVEN_QT_WALLETVIEW_H
+#endif // PLACEH_QT_WALLETVIEW_H

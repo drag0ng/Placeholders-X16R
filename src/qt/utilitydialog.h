@@ -1,15 +1,15 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Raven Core developers
+// Copyright (c) 2017 The Placeholder Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_UTILITYDIALOG_H
-#define RAVEN_QT_UTILITYDIALOG_H
+#ifndef PLACEH_QT_UTILITYDIALOG_H
+#define PLACEH_QT_UTILITYDIALOG_H
 
 #include <QDialog>
 #include <QObject>
 
-class RavenGUI;
+class PlacehGUI;
 
 namespace Ui {
     class HelpMessageDialog;
@@ -43,10 +43,10 @@ class ShutdownWindow : public QWidget
 
 public:
     explicit ShutdownWindow(QWidget *parent=0, Qt::WindowFlags f=0);
-    static QWidget *showShutdownWindow(RavenGUI *window);
+    static QWidget *showShutdownWindow(PlacehGUI *window);
 
 protected:
     void closeEvent(QCloseEvent *event);
 };
 
-#endif // RAVEN_QT_UTILITYDIALOG_H
+#endif // PLACEH_QT_UTILITYDIALOG_H
