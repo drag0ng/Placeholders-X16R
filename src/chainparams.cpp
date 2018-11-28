@@ -118,7 +118,7 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 2100000;  //~ 4 yrs at 1 min block time
+        consensus.nSubsidyHalvingInterval = 888888;  //~ 4 yrs at 1 min block time
         consensus.nBIP34Enabled = true;
         consensus.nBIP65Enabled = true; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.nBIP66Enabled = true;
@@ -163,10 +163,10 @@ public:
         pchMessageStart[1] = 0x41;
         pchMessageStart[2] = 0x56;
         pchMessageStart[3] = 0x4e;
-        nDefaultPort = 8767;
+        nDefaultPort = 6703;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1514999494, 25023712, 0x1e00ffff, 4, 5000 * COIN);
+        genesis = CreateGenesisBlock(1514999494, 25023712, 0x1e00ffff, 4, 5 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
@@ -177,9 +177,9 @@ public:
         vSeeds.emplace_back("seed-placeh.placehcoin.com", false);
         vSeeds.emplace_back("seed-placeh.placeh.io", false);
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,128);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,35);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,38);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,176);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
@@ -206,22 +206,22 @@ public:
 
         /** RVN Start **/
         // Burn Amounts
-        nIssueAssetBurnAmount = 500 * COIN;
-        nReissueAssetBurnAmount = 100 * COIN;
-        nIssueSubAssetBurnAmount = 100 * COIN;
-        nIssueUniqueAssetBurnAmount = 5 * COIN;
+        nIssueAssetBurnAmount = 5 * COIN;
+        nReissueAssetBurnAmount = 1 * COIN;
+        nIssueSubAssetBurnAmount = 1 * COIN;
+        nIssueUniqueAssetBurnAmount = 0.5 * COIN;
 
         // Burn Addresses
-        strIssueAssetBurnAddress = "RXissueAssetXXXXXXXXXXXXXXXXXhhZGt";
-        strReissueAssetBurnAddress = "RXReissueAssetXXXXXXXXXXXXXXVEFAWu";
-        strIssueSubAssetBurnAddress = "RXissueSubAssetXXXXXXXXXXXXXWcwhwL";
-        strIssueUniqueAssetBurnAddress = "RXissueUniqueAssetXXXXXXXXXXWEAe58";
+        strIssueAssetBurnAddress = "FXissueAssetXXXXXXXXXXXXXXXXXhhZGt";
+        strReissueAssetBurnAddress = "FXReissueAssetXXXXXXXXXXXXXXVEFAWu";
+        strIssueSubAssetBurnAddress = "FXissueSubAssetXXXXXXXXXXXXXWcwhwL";
+        strIssueUniqueAssetBurnAddress = "FXissueUniqueAssetXXXXXXXXXXWEAe58";
 
         //Global Burn Address
-        strGlobalBurnAddress = "RXBurnXXXXXXXXXXXXXXXXXXXXXXWUo9FV";
+        strGlobalBurnAddress = "FXBurnXXXXXXXXXXXXXXXXXXXXXXWUo9FV";
 
         // DGW Activation
-        nDGWActivationBlock = 338778;
+        nDGWActivationBlock = 1;
 
         nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
         nMinReorganizationPeers = 4;
