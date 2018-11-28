@@ -1,15 +1,15 @@
-Placehcoin Core
+Placeholders Core
 ==============
 
 Setup
 ---------------------
-Placehcoin Core is the original Placehcoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Placehcoin transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
+Placeholders Core is the original Placeholders client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Placeholders transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
 
-To download compiled binaries of the Placehcoin Core and wallet, visit the [GitHub release page](https://github.com/PlacehProject/Placehcoin/releases).
+To download compiled binaries of the Placeholders Core and wallet, visit the [GitHub release page](https://github.com/PlacehProject/Placeholders/releases).
 
 Running
 ---------------------
-The following are some helpful notes on how to run Placehcoin on your native platform.
+The following are some helpful notes on how to run Placeholders on your native platform.
 
 ### Linux
 
@@ -17,7 +17,7 @@ The following are some helpful notes on how to run Placehcoin on your native pla
 
 2) Install distribution-specific dependencies listed below.
 
-3) Run the GUI wallet or only the Placehcoin core deamon
+3) Run the GUI wallet or only the Placeholders core deamon
 
    a. GUI wallet:
    
@@ -102,56 +102,56 @@ To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dy
 
 ### Need Help?
 
-- See the documentation at the [Placehcoin Wiki](https://placeh.wiki/wiki/Placehcoin_Wiki)
+- See the documentation at the [Placeholders Wiki](https://placeh.wiki/wiki/Placeholders_Wiki)
 for help and more information.
-- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/PlacehcoinDev) or [Reddit](https://www.reddit.com/r/Placehcoin/).
-- Ask for help on the [PlacehcoinTalk](https://www.placehcointalk.org/) forums, in the [Development and Technical discussion board](https://www.placehcointalk.org/?forum=661517).
+- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/PlaceholdersDev) or [Reddit](https://www.reddit.com/r/Placeholders/).
+- Ask for help on the [PlaceholdersTalk](https://www.placehcointalk.org/) forums, in the [Development and Technical discussion board](https://www.placehcointalk.org/?forum=661517).
 
 Building from source
 ---------------------
-The following are developer notes on how to build the Placehcoin core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build the Placeholders core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [Dependencies](https://github.com/PlacehProject/Placehcoin/tree/master/doc/dependencies.md)
-- [OS X Build Notes](https://github.com/PlacehProject/Placehcoin/tree/master/doc/build-osx.md)
-- [Unix Build Notes](https://github.com/PlacehProject/Placehcoin/tree/master/doc/build-unix.md)
-- [Windows Build Notes](https://github.com/PlacehProject/Placehcoin/tree/master/doc/build-windows.md)
-- [OpenBSD Build Notes](https://github.com/PlacehProject/Placehcoin/tree/master/doc/build-openbsd.md)
-- [Gitian Building Guide](https://github.com/PlacehProject/Placehcoin/tree/master/doc/gitian-building.md)
+- [Dependencies](https://github.com/PlacehProject/Placeholders/tree/master/doc/dependencies.md)
+- [OS X Build Notes](https://github.com/PlacehProject/Placeholders/tree/master/doc/build-osx.md)
+- [Unix Build Notes](https://github.com/PlacehProject/Placeholders/tree/master/doc/build-unix.md)
+- [Windows Build Notes](https://github.com/PlacehProject/Placeholders/tree/master/doc/build-windows.md)
+- [OpenBSD Build Notes](https://github.com/PlacehProject/Placeholders/tree/master/doc/build-openbsd.md)
+- [Gitian Building Guide](https://github.com/PlacehProject/Placeholders/tree/master/doc/gitian-building.md)
 
 Development
 ---------------------
-Placehcoin repo's [root README](https://github.com/PlacehProject/Placehcoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+Placeholders repo's [root README](https://github.com/PlacehProject/Placeholders/blob/master/README.md) contains relevant information on the development process and automated testing.
 
-- [Developer Notes](https://github.com/PlacehProject/Placehcoin/blob/master/doc/developer-notes.md)
-- [Release Notes](https://github.com/PlacehProject/Placehcoin/blob/master/doc/release-notes.md)
-- [Release Process](https://github.com/PlacehProject/Placehcoin/blob/master/doc/release-process.md)
+- [Developer Notes](https://github.com/PlacehProject/Placeholders/blob/master/doc/developer-notes.md)
+- [Release Notes](https://github.com/PlacehProject/Placeholders/blob/master/doc/release-notes.md)
+- [Release Process](https://github.com/PlacehProject/Placeholders/blob/master/doc/release-process.md)
 - [Source Code Documentation (External Link)](https://dev.visucore.com/placeh/doxygen/) -- 2018-05-11 -- Broken link
-- [Translation Process](https://github.com/PlacehProject/Placehcoin/blob/master/doc/translation_process.md)
-- [Translation Strings Policy](https://github.com/PlacehProject/Placehcoin/blob/master/doc/translation_strings_policy.md)
-- [Travis CI](https://github.com/PlacehProject/Placehcoin/blob/master/doc/travis-ci.md)
-- [Unauthenticated REST Interface](https://github.com/PlacehProject/Placehcoin/blob/master/doc/REST-interface.md)
-- [Shared Libraries](https://github.com/PlacehProject/Placehcoin/blob/master/doc/shared-libraries.md)
-- [BIPS](https://github.com/PlacehProject/Placehcoin/blob/master/doc/bips.md)
-- [Dnsseed Policy](https://github.com/PlacehProject/Placehcoin/blob/master/doc/dnsseed-policy.md)
-- [Benchmarking](https://github.com/PlacehProject/Placehcoin/blob/master/doc/benchmarking.md)
+- [Translation Process](https://github.com/PlacehProject/Placeholders/blob/master/doc/translation_process.md)
+- [Translation Strings Policy](https://github.com/PlacehProject/Placeholders/blob/master/doc/translation_strings_policy.md)
+- [Travis CI](https://github.com/PlacehProject/Placeholders/blob/master/doc/travis-ci.md)
+- [Unauthenticated REST Interface](https://github.com/PlacehProject/Placeholders/blob/master/doc/REST-interface.md)
+- [Shared Libraries](https://github.com/PlacehProject/Placeholders/blob/master/doc/shared-libraries.md)
+- [BIPS](https://github.com/PlacehProject/Placeholders/blob/master/doc/bips.md)
+- [Dnsseed Policy](https://github.com/PlacehProject/Placeholders/blob/master/doc/dnsseed-policy.md)
+- [Benchmarking](https://github.com/PlacehProject/Placeholders/blob/master/doc/benchmarking.md)
 
 ### Resources
-- Discuss on the [PlacehcoinTalk](https://www.placehcointalk.org/) forums, in the [Development & Technical Discussion board](https://www.placehcointalk.org/?forum=661517).
-- Discuss on chat [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/PlacehcoinDev) or [Reddit](https://www.reddit.com/r/Placehcoin/).
-- Find out more on the [Placehcoin Wiki](https://placeh.wiki/wiki/Placehcoin_Wiki)
-- Visit the project home [Placehcoin.org](https://placehcoin.org)
+- Discuss on the [PlaceholdersTalk](https://www.placehcointalk.org/) forums, in the [Development & Technical Discussion board](https://www.placehcointalk.org/?forum=661517).
+- Discuss on chat [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/PlaceholdersDev) or [Reddit](https://www.reddit.com/r/Placeholders/).
+- Find out more on the [Placeholders Wiki](https://placeh.wiki/wiki/Placeholders_Wiki)
+- Visit the project home [Placeholders.org](https://placeh.io)
 
 ### Miscellaneous
-- [Assets Attribution](https://github.com/PlacehProject/Placehcoin/blob/master/doc/assets-attribution.md)
-- [Files](https://github.com/PlacehProject/Placehcoin/blob/master/doc/files.md)
-- [Fuzz-testing](https://github.com/PlacehProject/Placehcoin/blob/master/doc/fuzzing.md)
-- [Reduce Traffic](https://github.com/PlacehProject/Placehcoin/blob/master/doc/reduce-traffic.md)
-- [Tor Support](https://github.com/PlacehProject/Placehcoin/blob/master/doc/tor.md)
-- [Init Scripts (systemd/upstart/openrc)](https://github.com/PlacehProject/Placehcoin/blob/master/doc/init.md)
-- [ZMQ](https://github.com/PlacehProject/Placehcoin/blob/master/doc/zmq.md)
+- [Assets Attribution](https://github.com/PlacehProject/Placeholders/blob/master/doc/assets-attribution.md)
+- [Files](https://github.com/PlacehProject/Placeholders/blob/master/doc/files.md)
+- [Fuzz-testing](https://github.com/PlacehProject/Placeholders/blob/master/doc/fuzzing.md)
+- [Reduce Traffic](https://github.com/PlacehProject/Placeholders/blob/master/doc/reduce-traffic.md)
+- [Tor Support](https://github.com/PlacehProject/Placeholders/blob/master/doc/tor.md)
+- [Init Scripts (systemd/upstart/openrc)](https://github.com/PlacehProject/Placeholders/blob/master/doc/init.md)
+- [ZMQ](https://github.com/PlacehProject/Placeholders/blob/master/doc/zmq.md)
 
 License
 ---------------------
-Distributed under the [MIT software license](https://github.com/PlacehProject/Placehcoin/blob/master/COPYING).
+Distributed under the [MIT software license](https://github.com/PlacehProject/Placeholders/blob/master/COPYING).
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
 cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.

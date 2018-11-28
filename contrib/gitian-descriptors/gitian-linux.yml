@@ -28,7 +28,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/PlacehProject/Placehcoin.git"
+- "url": "https://github.com/PlacehProject/Placeholders.git"
   "dir": "placeh"
 files: []
 script: |

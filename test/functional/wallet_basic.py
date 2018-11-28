@@ -355,7 +355,7 @@ class WalletTest(PlacehTestFramework):
             '-reindex',
             '-zapwallettxes=1',
             '-zapwallettxes=2',
-            # disabled until issue is fixed: https://github.com/PlacehProject/Placehcoin/issues/7463
+            # disabled until issue is fixed: https://github.com/PlacehProject/Placeholders/issues/7463
             # '-salvagewallet',
         ]
         chainlimit = 6

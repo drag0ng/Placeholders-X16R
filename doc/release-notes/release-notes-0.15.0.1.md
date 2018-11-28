@@ -4,17 +4,17 @@ Placeholder Core version *0.15.0.1* is now available from:
 
 and
 
-  <https://placehcoin.org/bin/placeh-core-0.15.0.1/>
+  <https://placeh.io/bin/placeh-core-0.15.0.1/>
 
 This is a minor bug fix for 0.15.0.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/PlacehProject/Placehcoin/issues>
+  <https://github.com/PlacehProject/Placeholders/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://placehcoin.org/en/list/announcements/join/>
+  <https://placeh.io/en/list/announcements/join/>
 
 How to Upgrade
 ==============

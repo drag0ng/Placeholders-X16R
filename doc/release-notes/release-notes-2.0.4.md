@@ -1,7 +1,7 @@
 Placeholder Core version *2.0.4.0* is now available!!
 ==============
 
-  <https://github.com/PlacehProject/Placehcoin/releases/tag/v2.0.4>
+  <https://github.com/PlacehProject/Placeholders/releases/tag/v2.0.4>
 
 
 This is a major release containing bug fixes for 2.0.3.0.  It is highly recommended that users 
@@ -9,11 +9,11 @@ upgrade to this version.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/PlacehProject/Placehcoin/issues>
+  <https://github.com/PlacehProject/Placeholders/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://placehcoin.org/en/list/announcements/join/>
+  <https://placeh.io/en/list/announcements/join/>
 
 How to Upgrade
 ==============
@@ -68,7 +68,7 @@ Notable changes
 2.0.4.0-b175d7350 Change log
 ==============
 
-Changelog available here: <https://github.com/PlacehProject/Placehcoin/commits/release_2.0.4>
+Changelog available here: <https://github.com/PlacehProject/Placeholders/commits/release_2.0.4>
 
 Credits
 ==============

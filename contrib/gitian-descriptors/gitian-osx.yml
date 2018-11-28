@@ -28,7 +28,7 @@ packages:
 - "python-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/PlacehProject/Placehcoin.git"
+- "url": "https://github.com/PlacehProject/Placeholders.git"
   "dir": "placeh"
 files:
 - "MacOSX10.11.sdk.tar.gz"

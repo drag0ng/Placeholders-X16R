@@ -72,7 +72,7 @@ Extracting the txids and vouts gives us our raw inputs:
 
 ## The Outputs
 
-We'll be using 5 new Placehcoin addresses:
+We'll be using 5 new Placeholders addresses:
 
 Andy's Placeh change address:
 `mvGfeg4uZA8XvjVDUywdgYE6TAyz77o5gB`

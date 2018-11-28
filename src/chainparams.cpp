@@ -175,7 +175,7 @@ public:
 
         vSeeds.emplace_back("seed-placeh.bitactivate.com", false);
         vSeeds.emplace_back("seed-placeh.placehcoin.com", false);
-        vSeeds.emplace_back("seed-placeh.placehcoin.org", false);
+        vSeeds.emplace_back("seed-placeh.placeh.io", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122);
@@ -347,7 +347,7 @@ public:
 
         vSeeds.emplace_back("seed-testnet-placeh.bitactivate.com", false);
         vSeeds.emplace_back("seed-testnet-placeh.placehcoin.com", false);
-        vSeeds.emplace_back("seed-testnet-placeh.placehcoin.org", false);
+        vSeeds.emplace_back("seed-testnet-placeh.placeh.io", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);

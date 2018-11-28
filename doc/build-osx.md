@@ -51,8 +51,8 @@ Build Placeholder Core
 
 1. Clone the placeh source code and cd into `placeh`
 
-        git clone https://github.com/PlacehProject/Placehcoin
-        cd Placehcoin
+        git clone https://github.com/PlacehProject/Placeholders
+        cd Placeholders
 
 2.  Build placeh-core:
 

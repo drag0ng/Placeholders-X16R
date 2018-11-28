@@ -1,13 +1,13 @@
 Placeholder Core integration/staging tree
 =====================================
 
-https://placehcoin.org
+https://placeh.io
 
-What is Placehcoin?
+What is Placeholders?
 ----------------
 
-Placehcoin is an experimental digital currency that enables instant payments to
-anyone, anywhere in the world. Placehcoin uses peer-to-peer technology to operate
+Placeholders is an experimental digital currency that enables instant payments to
+anyone, anywhere in the world. Placeholders uses peer-to-peer technology to operate
 with no central authority: managing transactions and issuing money are carried
 out collectively by the network. 
 
@@ -23,7 +23,7 @@ Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/PlacehProject/Placehcoin/tags) are created
+completely stable. [Tags](https://github.com/PlacehProject/Placeholders/tags) are created
 regularly to indicate new official, stable release versions of Placeholder Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -66,24 +66,24 @@ to add a test plan to the pull request description if testing the changes is
 not straightforward.
 
 
-About Placehcoin
+About Placeholders
 ----------------
 A digital peer to peer network for the facilitation of asset transfer.
 
 
 
-In the fictional world of Westeros, placehs are used as messengers who carry statements of truth. Placehcoin is a use case specific blockchain designed to carry statements of truth about who owns what assets. 
+In the fictional world of Westeros, placehs are used as messengers who carry statements of truth. Placeholders is a use case specific blockchain designed to carry statements of truth about who owns what assets. 
 
 
 
 Thank you to the Bitcoin developers. 
 
-The Placehcoin project is launched based on the hard work and continuous effort of over 400 Bitcoin developers who made over 14,000 commits over the life to date of the Bitcoin project. We are eternally grateful to you for your efforts and diligence in making a secure network and for their support of free and open source software development.  The Placehcoin experiment is made on the foundation you built.
+The Placeholders project is launched based on the hard work and continuous effort of over 400 Bitcoin developers who made over 14,000 commits over the life to date of the Bitcoin project. We are eternally grateful to you for your efforts and diligence in making a secure network and for their support of free and open source software development.  The Placeholders experiment is made on the foundation you built.
 
 
 Abstract
 ----------------
-Placehcoin aims to implement a blockchain which is optimized specifically for the use case of transferring assets such as securities from one holder to another. Based on the extensive development and testing of Bitcoin, Placehcoin is built on a fork of the Bitcoin code. Key changes include a faster block reward time and a change in the number, but not weighed distribution schedule, of coins. Placehcoin is free and open source and will be issued and mined transparently with no pre-mine, developer allocation or any other similar set aside. Placehcoin is intended to prioritize user control, privacy and censorship resistance and be jurisdiction agnostic while allowing simple optional additional features for users based on need.
+Placeholders aims to implement a blockchain which is optimized specifically for the use case of transferring assets such as securities from one holder to another. Based on the extensive development and testing of Bitcoin, Placeholders is built on a fork of the Bitcoin code. Key changes include a faster block reward time and a change in the number, but not weighed distribution schedule, of coins. Placeholders is free and open source and will be issued and mined transparently with no pre-mine, developer allocation or any other similar set aside. Placeholders is intended to prioritize user control, privacy and censorship resistance and be jurisdiction agnostic while allowing simple optional additional features for users based on need.
 
 
 
@@ -93,9 +93,9 @@ The success of the Ethereum ERC 20 token shows the demand for tokenized assets t
 
 Bitcoin also has the capability of serving as the rails for tokens by using projects such as Omnilayer, RSK or Counterparty. However, neither Bitcoin nor Ethereum was specifically designed for facilitating ownership of other assets. 
 
-Placehcoin is designed to be a use case specific blockchain designed to efficiently handle one specific function: the transfer of assets from one party to another.
+Placeholders is designed to be a use case specific blockchain designed to efficiently handle one specific function: the transfer of assets from one party to another.
 
-Bitcoin is and always should be focused on its goals of being a better form of money. Bitcoin developers will unlikely prioritize improvements or features which are specifically beneficial to the facilitation of token transfers.  One goal of the Placehcoin project is to see if a use case specific blockchain and development effort can create code which can either improve existing structures like Bitcoin or provide advantages for specific use cases.
+Bitcoin is and always should be focused on its goals of being a better form of money. Bitcoin developers will unlikely prioritize improvements or features which are specifically beneficial to the facilitation of token transfers.  One goal of the Placeholders project is to see if a use case specific blockchain and development effort can create code which can either improve existing structures like Bitcoin or provide advantages for specific use cases.
 
 In the new global economy, borders and jurisdictions will be less relevant as more assets are tradable and trade across borders is increasingly frictionless. In an age where people can move significant amounts of wealth instantly using Bitcoin, global consumers will likely demand the same efficiency for their securities and similar asset holdings.
 

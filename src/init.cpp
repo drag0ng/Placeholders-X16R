@@ -531,8 +531,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/PlacehProject/Placehcoin>";
-    const std::string URL_WEBSITE = "<https://placehcoin.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/PlacehProject/Placeholders>";
+    const std::string URL_WEBSITE = "<https://placeh.io>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
