@@ -48,7 +48,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tests, BasicTestingSetup)
         BOOST_CHECK(!IsAssetNameValid("AB_.C", type));
 
         //- Versions of PLACEHCOIN NOT allowed
-        BOOST_CHECK(!IsAssetNameValid("RVN", type));
+        BOOST_CHECK(!IsAssetNameValid("PHL", type));
         BOOST_CHECK(!IsAssetNameValid("PLACEH", type));
         BOOST_CHECK(!IsAssetNameValid("PLACEHCOIN", type));
 

@@ -30,7 +30,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(PlacehUnits::RVN),
+        QAbstractItemDelegate(parent), unit(PlacehUnits::PHL),
         platformStyle(_platformStyle)
     {
 
@@ -259,7 +259,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("RVN")
+    // update the display unit, to not use the default ("PHL")
     updateDisplayUnit();
     ui->listAssets->resizeColumnsToContents();
 }
@@ -310,7 +310,7 @@ void OverviewPage::showAssets()
         ui->listAssets->hide();
         ui->labelAssetAdministrator->hide();
 
-        // This keeps the RVN balance grid from expanding and looking terrible when asset balance is hidden
+        // This keeps the PHL balance grid from expanding and looking terrible when asset balance is hidden
         ui->assetVeriticalSpaceWidget->show();
     }
 

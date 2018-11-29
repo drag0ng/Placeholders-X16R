@@ -324,14 +324,32 @@ void PlacehGUI::createActions()
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
-    /** RVN START */
+    /** PHL START */
     assetAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("&Assets"), this);
     assetAction->setStatusTip(tr("Manage Assets"));
     assetAction->setToolTip(assetAction->statusTip());
     assetAction->setCheckable(true);
     assetAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(assetAction);
-    /** RVN END */
+    /** PHL END */
+	
+    /** PHL START */
+    repositoryAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("&Repository"), this);
+    repositoryAction->setStatusTip(tr("Manage Repository"));
+    repositoryAction->setToolTip(repositoryAction->statusTip());
+    repositoryAction->setCheckable(true);
+    repositoryAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+    tabGroup->addAction(repositoryAction);
+    /** PHL END */	
+
+    /** PHL START */
+    artifactManagementAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("&Artifact Management"), this);
+    artifactManagementAction->setStatusTip(tr("Artifact Management"));
+    artifactManagementAction->setToolTip(artifactManagementAction->statusTip());
+    artifactManagementAction->setCheckable(true);
+    artifactManagementAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+    tabGroup->addAction(artifactManagementAction);
+    /** PHL END */	
 
 #ifdef ENABLE_WALLET
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
@@ -485,9 +503,9 @@ void PlacehGUI::createToolBars()
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
 
-        /** RVN START */
+        /** PHL START */
         toolbar->addAction(assetAction);
-        /** RVN END */
+        /** PHL END */
         overviewAction->setChecked(true);
     }
 }
@@ -596,9 +614,9 @@ void PlacehGUI::setWalletActionsEnabled(bool enabled)
     usedReceivingAddressesAction->setEnabled(enabled);
     openAction->setEnabled(enabled);
 
-    /** RVN START */
+    /** PHL START */
     assetAction->setEnabled(false);
-    /** RVN END */
+    /** PHL END */
 }
 
 void PlacehGUI::createTrayIcon(const NetworkStyle *networkStyle)
@@ -743,13 +761,13 @@ void PlacehGUI::gotoVerifyMessageTab(QString addr)
     if (walletFrame) walletFrame->gotoVerifyMessageTab(addr);
 }
 
-/** RVN START */
+/** PHL START */
 void PlacehGUI::gotoAssetsPage()
 {
     assetAction->setChecked(true);
     if (walletFrame) walletFrame->gotoAssetsPage();
 };
-/** RVN END */
+/** PHL END */
 #endif // ENABLE_WALLET
 
 void PlacehGUI::updateNetworkState()
@@ -1031,7 +1049,7 @@ void PlacehGUI::incomingTransaction(const QString& date, int unit, const CAmount
 {
     // On new transaction, make an info balloon
     QString msg = tr("Date: %1\n").arg(date);
-    if (assetName == "RVN")
+    if (assetName == "PHL")
         msg += tr("Amount: %1\n").arg(PlacehUnits::formatWithUnit(unit, amount, true));
     else
         msg += tr("Amount: %1\n").arg(PlacehUnits::formatWithCustomName(assetName, amount, MAX_ASSET_UNITS, true));

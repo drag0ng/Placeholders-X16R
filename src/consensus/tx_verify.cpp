@@ -185,14 +185,14 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
         if (!MoneyRange(nValueOut))
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-txouttotal-toolarge");
 
-        /** RVN START */
+        /** PHL START */
         bool isAsset = false;
         int nType;
         bool fIsOwner;
         if (txout.scriptPubKey.IsAssetScript(nType, fIsOwner))
             isAsset = true;
 
-        // Make sure that all asset tx have a nValue of zero RVN
+        // Make sure that all asset tx have a nValue of zero PHL
         if (isAsset && txout.nValue != 0)
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-asset-tx-amount-isn't-zero");
 
@@ -231,7 +231,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
             }
         }
     }
-    /** RVN END */
+    /** PHL END */
 
     if (fCheckDuplicateInputs) {
         std::set<COutPoint> vInOutPoints;
@@ -254,7 +254,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
                 return state.DoS(10, false, REJECT_INVALID, "bad-txns-prevout-null");
     }
 
-    /** RVN START */
+    /** PHL START */
     if (AreAssetsDeployed()) {
         if (assetCache) {
             if (tx.IsNewAsset()) {
@@ -313,7 +313,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
                 }
             } else {
                 // Fail if transaction contains any non-transfer asset scripts and hasn't conformed to one of the
-                // above transaction types.  Also fail if it contains OP_RVN_ASSET opcode but wasn't a valid script.
+                // above transaction types.  Also fail if it contains OP_PHL_ASSET opcode but wasn't a valid script.
                 for (auto out : tx.vout) {
                     int nType;
                     bool _isOwner;
@@ -322,7 +322,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
                             return state.DoS(100, false, REJECT_INVALID, "bad-txns-bad-asset-transaction");
                         }
                     } else {
-                        if (out.scriptPubKey.Find(OP_RVN_ASSET) > 0) {
+                        if (out.scriptPubKey.Find(OP_PHL_ASSET) > 0) {
                             return state.DoS(100, false, REJECT_INVALID, "bad-txns-bad-asset-script");
                         }
                     }
@@ -330,7 +330,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
             }
         }
     }
-    /** RVN END */
+    /** PHL END */
 
     return true;
 }

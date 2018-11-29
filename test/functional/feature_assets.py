@@ -18,7 +18,7 @@ class AssetTest(PlacehTestFramework):
         self.num_nodes = 3
 
     def activate_assets(self):
-        self.log.info("Generating RVN for node[0] and activating assets...")
+        self.log.info("Generating PHL for node[0] and activating assets...")
         n0, n1, n2 = self.nodes[0], self.nodes[1], self.nodes[2]
 
         n0.generate(1)

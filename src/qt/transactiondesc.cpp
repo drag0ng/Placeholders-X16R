@@ -52,7 +52,7 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
 {
     QString strHTML;
 
-    if (rec->assetName != "RVN") {
+    if (rec->assetName != "PHL") {
         return toAssetHTML(wallet, wtx, rec, unit);
     }
 
@@ -382,7 +382,7 @@ QString TransactionDesc::toAssetHTML(CWallet *wallet, CWalletTx &wtx, Transactio
         strHTML += "<b>" + tr("Debit") + ":</b> " + PlacehUnits::formatWithCustomName(QString::fromStdString(rec->assetName), nAssetsRec, rec->units, true) + "<br>";
     }
 
-    strHTML += "<b>" + tr("Net RVN amount") + ":</b> " + PlacehUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
+    strHTML += "<b>" + tr("Net PHL amount") + ":</b> " + PlacehUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
 
     //
     // Message

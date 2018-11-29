@@ -297,7 +297,7 @@
                   <enum>Qt::ActionsContextMenu</enum>
                  </property>
                  <property name="text">
-                  <string notr="true">0.00 RVN</string>
+                  <string notr="true">0.00 PHL</string>
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -377,7 +377,7 @@
                   <enum>Qt::ActionsContextMenu</enum>
                  </property>
                  <property name="text">
-                  <string notr="true">0.00 RVN</string>
+                  <string notr="true">0.00 PHL</string>
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -428,7 +428,7 @@
                   <enum>Qt::ActionsContextMenu</enum>
                  </property>
                  <property name="text">
-                  <string notr="true">0.00 RVN</string>
+                  <string notr="true">0.00 PHL</string>
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -457,7 +457,7 @@
                   <enum>Qt::ActionsContextMenu</enum>
                  </property>
                  <property name="text">
-                  <string notr="true">0.00 RVN</string>
+                  <string notr="true">0.00 PHL</string>
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -609,7 +609,7 @@
              <string/>
             </property>
             <property name="placeholderText">
-             <string>The RVN address that will hold this asset (You must own this address). Leave blank to create a new address.</string>
+             <string>The PHL address that will hold this asset (You must own this address). Leave blank to create a new address.</string>
             </property>
            </widget>
           </item>
@@ -1438,7 +1438,7 @@
      <item>
       <widget class="QLabel" name="labelBalance">
        <property name="text">
-        <string>123.456 RVN</string>
+        <string>123.456 PHL</string>
        </property>
       </widget>
      </item>

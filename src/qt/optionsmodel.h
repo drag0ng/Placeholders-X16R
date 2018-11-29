@@ -84,9 +84,9 @@ private:
     int nDisplayUnit;
     QString strThirdPartyTxUrls;
     bool fCoinControlFeatures;
-    /** RVN START*/
+    /** PHL START*/
     bool fCustomFeeFeatures;
-    /** RVN END*/
+    /** PHL END*/
     /* settings that were overridden by command-line */
     QString strOverriddenByCommandLine;
 

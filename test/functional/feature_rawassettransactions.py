@@ -42,7 +42,7 @@ class RawAssetTransactionsTest(PlacehTestFramework):
         self.num_nodes = 3
 
     def activate_assets(self):
-        self.log.info("Generating RVN for node[0] and activating assets...")
+        self.log.info("Generating PHL for node[0] and activating assets...")
         n0, n1, n2 = self.nodes[0], self.nodes[1], self.nodes[2]
 
         n0.generate(1)
@@ -244,13 +244,13 @@ class RawAssetTransactionsTest(PlacehTestFramework):
         f = BytesIO(hex_str_to_bytes(tx_issue_hex))
         tx.deserialize(f)
         rvno = '72766e6f' #rvno
-        RVNO = '52564e4f' #RVNO
+        PHLO = '52564e4f' #RVNO
         # change the owner output script type to be invalid
         for n in range(0, len(tx.vout)):
             out = tx.vout[n]
             if rvno in bytes_to_hex_str(out.scriptPubKey):
                 owner_script_hex = bytes_to_hex_str(out.scriptPubKey)
-                tampered_script = owner_script_hex.replace(rvno, RVNO)
+                tampered_script = owner_script_hex.replace(rvno, PHLO)
                 tx.vout[n].scriptPubKey = hex_str_to_bytes(tampered_script)
         tx_bad_issue = bytes_to_hex_str(tx.serialize())
         tx_bad_issue_signed = n0.signrawtransaction(tx_bad_issue)['hex']
@@ -740,7 +740,7 @@ class RawAssetTransactionsTest(PlacehTestFramework):
         ########################################
         # rvn for assets
 
-        # n1 buys 400 ANDUIN from n2 for 4000 RVN
+        # n1 buys 400 ANDUIN from n2 for 4000 PHL
         price = 4000
         amount = 400
         fee = 0.0001
@@ -791,7 +791,7 @@ class RawAssetTransactionsTest(PlacehTestFramework):
         ########################################
         # rvn for owner
 
-        # n2 buys JAINA! from n1 for 20000 RVN
+        # n2 buys JAINA! from n1 for 20000 PHL
         price = 20000
         amount = 1
         balance1 = newbalance1

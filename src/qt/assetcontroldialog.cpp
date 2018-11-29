@@ -539,7 +539,7 @@ void AssetControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     }
 
     // actually update labels
-    int nDisplayUnit = PlacehUnits::RVN;
+    int nDisplayUnit = PlacehUnits::PHL;
     if (model && model->getOptionsModel())
         nDisplayUnit = model->getOptionsModel()->getDisplayUnit();
 

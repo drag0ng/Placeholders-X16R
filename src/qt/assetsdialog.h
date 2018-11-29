@@ -98,12 +98,12 @@ private Q_SLOTS:
 
     void customFeeFeatureChanged(bool);
 
-    /** RVN START */
+    /** PHL START */
     void createAssetButtonClicked();
     void reissueAssetButtonClicked();
     void mineButtonClicked();
     void assetControlUpdateSendCoinsDialog();
-    /** RVN END */
+    /** PHL END */
 
     Q_SIGNALS:
             // Fired when a message should be reported to the user

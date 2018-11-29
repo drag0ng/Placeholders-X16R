@@ -188,7 +188,7 @@ bool parsePlacehURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!PlacehUnits::parse(PlacehUnits::RVN, i->second, &rv.amount))
+                if(!PlacehUnits::parse(PlacehUnits::PHL, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -227,7 +227,7 @@ QString formatPlacehURI(const SendCoinsRecipient &info)
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(PlacehUnits::format(PlacehUnits::RVN, info.amount, false, PlacehUnits::separatorNever));
+        ret += QString("?amount=%1").arg(PlacehUnits::format(PlacehUnits::PHL, info.amount, false, PlacehUnits::separatorNever));
         paramCount++;
     }
 

@@ -115,7 +115,7 @@ AssetsDialog::AssetsDialog(const PlatformStyle *_platformStyle, QWidget *parent)
     ui->checkBoxMinimumFee->setChecked(settings.value("fPayOnlyMinFee").toBool());
     minimizeFeeSection(settings.value("fFeeSectionMinimized").toBool());
 
-    /** RVN START */
+    /** PHL START */
     connect(ui->createAssetButton, SIGNAL(clicked()), this, SLOT(createAssetButtonClicked()));
     connect(ui->reissueAssetButton, SIGNAL(clicked()), this, SLOT(reissueAssetButtonClicked()));
 
@@ -129,7 +129,7 @@ AssetsDialog::AssetsDialog(const PlatformStyle *_platformStyle, QWidget *parent)
         ui->mineBlocksCount->setToolTip(tr("The number of blocks to mine"));
         connect(ui->mineButton, SIGNAL(clicked()), this, SLOT(mineButtonClicked()));
     }
-    /** RVN END */
+    /** PHL END */
 }
 
 void AssetsDialog::setClientModel(ClientModel *_clientModel)
@@ -886,7 +886,7 @@ void AssetsDialog::assetControlUpdateLabels()
     }
 }
 
-/** RVN START */
+/** PHL START */
 void AssetsDialog::createAssetButtonClicked()
 {
     WalletModel::UnlockContext ctx(model->requestUnlock());
@@ -965,4 +965,4 @@ void AssetsDialog::processNewTransaction()
         }
     }
 }
-/** RVN END */
+/** PHL END */

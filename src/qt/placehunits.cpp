@@ -18,9 +18,9 @@ PlacehUnits::PlacehUnits(QObject *parent):
 QList<PlacehUnits::Unit> PlacehUnits::availableUnits()
 {
     QList<PlacehUnits::Unit> unitlist;
-    unitlist.append(RVN);
-    unitlist.append(mRVN);
-    unitlist.append(uRVN);
+    unitlist.append(PHL);
+    unitlist.append(mPHL);
+    unitlist.append(uPHL);
     return unitlist;
 }
 
@@ -28,9 +28,9 @@ bool PlacehUnits::valid(int unit)
 {
     switch(unit)
     {
-    case RVN:
-    case mRVN:
-    case uRVN:
+    case PHL:
+    case mPHL:
+    case uPHL:
         return true;
     default:
         return false;
@@ -41,9 +41,9 @@ QString PlacehUnits::name(int unit)
 {
     switch(unit)
     {
-    case RVN: return QString("RVN");
-    case mRVN: return QString("mRVN");
-    case uRVN: return QString::fromUtf8("μRVN");
+    case PHL: return QString("PHL");
+    case mPHL: return QString("mPHL");
+    case uPHL: return QString::fromUtf8("μPHL");
     default: return QString("???");
     }
 }
@@ -52,9 +52,9 @@ QString PlacehUnits::description(int unit)
 {
     switch(unit)
     {
-    case RVN: return QString("Placehs");
-    case mRVN: return QString("Milli-Placehs (1 / 1" THIN_SP_UTF8 "000)");
-    case uRVN: return QString("Micro-Placehs (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case PHL: return QString("Placehs");
+    case mPHL: return QString("Milli-Placehs (1 / 1" THIN_SP_UTF8 "000)");
+    case uPHL: return QString("Micro-Placehs (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -63,9 +63,9 @@ qint64 PlacehUnits::factor(int unit)
 {
     switch(unit)
     {
-    case RVN:  return 100000000;
-    case mRVN: return 100000;
-    case uRVN: return 100;
+    case PHL:  return 100000000;
+    case mPHL: return 100000;
+    case uPHL: return 100;
     default:   return 100000000;
     }
 }
@@ -74,9 +74,9 @@ int PlacehUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case RVN: return 8;
-    case mRVN: return 5;
-    case uRVN: return 2;
+    case PHL: return 8;
+    case mPHL: return 5;
+    case uPHL: return 2;
     default: return 0;
     }
 }
@@ -131,7 +131,7 @@ QString PlacehUnits::formatWithUnit(int unit, const CAmount& amount, bool plussi
 
 QString PlacehUnits::formatWithCustomName(QString customName, const CAmount& amount, int unit, bool plussign, SeparatorStyle separators)
 {
-    return format(RVN, amount, plussign, separators, unit) + QString(" ") + customName;
+    return format(PHL, amount, plussign, separators, unit) + QString(" ") + customName;
 }
 
 QString PlacehUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)

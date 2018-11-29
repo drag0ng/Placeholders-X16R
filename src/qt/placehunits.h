@@ -62,9 +62,9 @@ public:
      */
     enum Unit
     {
-        RVN,
-        mRVN,
-        uRVN
+        PHL,
+        mPHL,
+        uPHL
     };
 
     enum SeparatorStyle

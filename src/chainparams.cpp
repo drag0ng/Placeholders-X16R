@@ -152,7 +152,7 @@ public:
 
         //TODO - Set this to genesis block
         // By default assume that the signatures in ancestors of this block are valid.
-        //consensus.defaultAssumeValid = uint256S("0x0000000000000000003b9ce759c2a087d52abc4266f8f4ebd6d768b89defa50a"); //477890
+        //consensus.defaultAssumeValid = uint256S("0x0000006b444bc2f2ffe627be9d9e7e7a0730000870ef6eb6da46c8eae389df90"); //477890
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -163,19 +163,29 @@ public:
         pchMessageStart[1] = 0x41;
         pchMessageStart[2] = 0x56;
         pchMessageStart[3] = 0x4e;
-        nDefaultPort = 6703;
+        nDefaultPort = 6705;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1514999494, 25023712, 0x1e00ffff, 4, 5 * COIN);
+        genesis = CreateGenesisBlock(1514999494, 25023712, 0x1e00ffff, 4, 5000 * COIN);
+
+        //genesis = CreateGenesisBlock(1514999492, 5911394,  0x1d00ffff, 4, 5 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0000006b444bc2f2ffe627be9d9e7e7a0730000870ef6eb6da46c8eae389df90"));
-        assert(genesis.hashMerkleRoot == uint256S("28ff00a867739a352523808d301f504bc4547699398d70faf2266a8bae5f3516"));
+		
+		assert(consensus.hashGenesisBlock == uint256S("0x0000006b444bc2f2ffe627be9d9e7e7a0730000870ef6eb6da46c8eae389df90"));
+        assert(genesis.hashMerkleRoot == uint256S("0x28ff00a867739a352523808d301f504bc4547699398d70faf2266a8bae5f3516"));
 
-        vSeeds.emplace_back("seed-placeh.bitactivate.com", false);
-        vSeeds.emplace_back("seed-placeh.placehcoin.com", false);
-        vSeeds.emplace_back("seed-placeh.placeh.io", false);
+		
+		std::cout<<"GH:"<<genesis.GetHash().ToString().c_str()<<std::endl;
+        //c5462ea652cd629985125ae0ecdc2b2738ded81a8873fd8bef119001014cb7dd
+		//assert(consensus.hashGenesisBlock == uint256S("0x6ae9f3ccd41d2750cbe1515a8f11ea501e01e1c449e9393dcfb1249b29368fd2"));
+        //assert(consensus.hashGenesisBlock == uint256S("c5462ea652cd629985125ae0ecdc2b2738ded81a8873fd8bef119001014cb7dd"));
+        //assert(genesis.hashMerkleRoot == uint256S("0xe942286f13435cf24f6cdcfd92f49bc5e2a25b8d075760d7f72140f281942fbc"));
+                                                 //e942286f13435cf24f6cdcfd92f49bc5e2a25b8d075760d7f72140f281942fbc
+        //vSeeds.emplace_back("seed-placeh.bitactivate.com", false);
+        //vSeeds.emplace_back("seed-placeh.placehcoin.com", false);
+        //vSeeds.emplace_back("seed.placeh.io", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,35);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,38);
@@ -188,23 +198,23 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
 
         checkpointData = (CCheckpointData) {
             {
-
+				//{ 0, uint256S("0x0000006b444bc2f2ffe627be9d9e7e7a0730000870ef6eb6da46c8eae389df90") }
             }
         };
 
         chainTxData = ChainTxData{
             // Update as we know more about the contents of the Placeh chain
-            1509572692, // * UNIX timestamp of last known number of transactions
-            1,          // * total number of transactions between genesis and that timestamp
+            0, // * UNIX timestamp of last known number of transactions
+            0,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            3.1         // * estimated number of transactions per second after that timestamp
+            0       // * estimated number of transactions per second after that timestamp
         };
 
-        /** RVN Start **/
+        /** PHL Start **/
         // Burn Amounts
         nIssueAssetBurnAmount = 5 * COIN;
         nReissueAssetBurnAmount = 1 * COIN;
@@ -221,12 +231,12 @@ public:
         strGlobalBurnAddress = "FXBurnXXXXXXXXXXXXXXXXXXXXXXWUo9FV";
 
         // DGW Activation
-        nDGWActivationBlock = 1;
+        nDGWActivationBlock = 120;
 
         nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
         nMinReorganizationPeers = 4;
         nMinReorganizationAge = 60 * 60 * 12; // 12 hours
-        /** RVN End **/
+        /** PHL End **/
     }
 };
 
@@ -237,14 +247,14 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nSubsidyHalvingInterval = 2100000;  //~ 4 yrs at 1 min block time
+        consensus.nSubsidyHalvingInterval = 888888;  //~ 4 yrs at 1 min block time
         consensus.nBIP34Enabled = true;
         consensus.nBIP65Enabled = true; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.nBIP66Enabled = true;
         consensus.nSegwitEnabled = true;
         consensus.nCSVEnabled = true;
 
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 2016 * 60; // 1.4 days
         consensus.nPowTargetSpacing = 1 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -273,65 +283,71 @@ public:
         nDefaultPort = 18770;
         nPruneAfterHeight = 1000;
 
-        uint32_t nGenesisTime = 1537466400;  // Thursday, September 20, 2018 12:00:00 PM GMT-06:00
+        uint32_t nGenesisTime = 1514999492;  // Thursday, September 20, 2018 12:00:00 PM GMT-06:00
 
         // This is used inorder to mine the genesis block. Once found, we can use the nonce and block hash found to create a valid genesis block
 //        /////////////////////////////////////////////////////////////////
 
 
-//        arith_uint256 test;
-//        bool fNegative;
-//        bool fOverflow;
-//        test.SetCompact(0x1e00ffff, &fNegative, &fOverflow);
-//        std::cout << "Test threshold: " << test.GetHex() << "\n\n";
-//
-//        int genesisNonce = 0;
-//        uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
-//        uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-//        for (int i=0;i<40000000;i++) {
-//            genesis = CreateGenesisBlock(nGenesisTime, i, 0x1e00ffff, 2, 5000 * COIN);
-//            //genesis.hashPrevBlock = TempHashHolding;
-//            consensus.hashGenesisBlock = genesis.GetHash();
-//
-//            arith_uint256 BestBlockHashArith = UintToArith256(BestBlockHash);
-//            if (UintToArith256(consensus.hashGenesisBlock) < BestBlockHashArith) {
-//                BestBlockHash = consensus.hashGenesisBlock;
-//                std::cout << BestBlockHash.GetHex() << " Nonce: " << i << "\n";
-//                std::cout << "   PrevBlockHash: " << genesis.hashPrevBlock.GetHex() << "\n";
-//            }
-//
-//            TempHashHolding = consensus.hashGenesisBlock;
-//
-//            if (BestBlockHashArith < test) {
-//                genesisNonce = i - 1;
-//                break;
-//            }
-//            //std::cout << consensus.hashGenesisBlock.GetHex() << "\n";
-//        }
-//        std::cout << "\n";
-//        std::cout << "\n";
-//        std::cout << "\n";
-//
-//        std::cout << "hashGenesisBlock to 0x" << BestBlockHash.GetHex() << std::endl;
-//        std::cout << "Genesis Nonce to " << genesisNonce << std::endl;
-//        std::cout << "Genesis Merkle " << genesis.hashMerkleRoot.GetHex() << std::endl;
-//
-//        std::cout << "\n";
-//        std::cout << "\n";
-//        int totalHits = 0;
-//        double totalTime = 0.0;
-//
-//        for(int x = 0; x < 16; x++) {
-//            totalHits += algoHashHits[x];
-//            totalTime += algoHashTotal[x];
-//            std::cout << "hash algo " << x << " hits " << algoHashHits[x] << " total " << algoHashTotal[x] << " avg " << algoHashTotal[x]/algoHashHits[x] << std::endl;
-//        }
-//
-//        std::cout << "Totals: hash algo " <<  " hits " << totalHits << " total " << totalTime << " avg " << totalTime/totalHits << std::endl;
-//
-//        genesis.hashPrevBlock = TempHashHolding;
-//
-//        return;
+        arith_uint256 test;
+        bool fNegative;
+        bool fOverflow;
+        test.SetCompact( 0x1d00ffff, &fNegative, &fOverflow);
+        //test.SetCompact( 0x1d00ffff, &fNegative, &fOverflow);
+        std::cout << "Test threshold: " << test.GetHex() << "\n\n";
+
+        int genesisNonce = 0;
+        uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
+        uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        for (int i=0;i<40000000;i++) {
+            //genesis = CreateGenesisBlock(nGenesisTime, i, 0x1e00ffff, 4, 5 * COIN);
+            genesis = CreateGenesisBlock(nGenesisTime, i,  0x1d00ffff, 4, 5 * COIN);
+            
+			
+			genesis.hashPrevBlock = TempHashHolding;
+            consensus.hashGenesisBlock = genesis.GetHash();
+
+            arith_uint256 BestBlockHashArith = UintToArith256(BestBlockHash);
+            if (UintToArith256(consensus.hashGenesisBlock) < BestBlockHashArith) {
+                BestBlockHash = consensus.hashGenesisBlock;
+                std::cout << BestBlockHash.GetHex() << " Nonce: " << i << "\n";
+                std::cout << "   PrevBlockHash: " << genesis.hashPrevBlock.GetHex() << "\n";
+            }
+
+            TempHashHolding = consensus.hashGenesisBlock;
+
+            if (BestBlockHashArith < test) {
+                genesisNonce = i - 1;
+                break;
+            }
+            //std::cout << consensus.hashGenesisBlock.GetHex() << "\n";
+        }
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+
+        std::cout << "hashGenesisBlock to 0x" << BestBlockHash.GetHex() << std::endl;
+        std::cout << "Genesis Nonce to " << genesisNonce << std::endl;
+        std::cout << "Genesis Merkle " << genesis.hashMerkleRoot.GetHex() << std::endl;
+
+        std::cout << "\n";
+        std::cout << "\n";
+        int totalHits = 0;
+        double totalTime = 0.0;
+
+        for(int x = 0; x < 16; x++) {
+            totalHits += algoHashHits[x];
+            totalTime += algoHashTotal[x];
+            std::cout << "hash algo " << x << " hits " << algoHashHits[x] << " total " << algoHashTotal[x] << " avg " << algoHashTotal[x]/algoHashHits[x] << std::endl;
+        }
+
+        std::cout << "Totals: hash algo " <<  " hits " << totalHits << " total " << totalTime << " avg " << totalTime/totalHits << std::endl;
+
+        genesis.hashPrevBlock = TempHashHolding;
+
+		bool b = true;
+		if( b ) 
+			return;
 
 //        /////////////////////////////////////////////////////////////////
 
@@ -359,7 +375,7 @@ public:
 
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
-        fMineBlocksOnDemand = false;
+        fMineBlocksOnDemand = true;
         fMiningRequiresPeers = true;
 
         checkpointData = (CCheckpointData) {
@@ -375,7 +391,7 @@ public:
             3.1         // * estimated number of transactions per second after that timestamp
         };
 
-        /** RVN Start **/
+        /** PHL Start **/
         // Burn Amounts
         nIssueAssetBurnAmount = 500 * COIN;
         nReissueAssetBurnAmount = 100 * COIN;
@@ -397,7 +413,7 @@ public:
         nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
         nMinReorganizationPeers = 4;
         nMinReorganizationAge = 60 * 60 * 12; // 12 hours
-        /** RVN End **/
+        /** PHL End **/
 
     }
 };
@@ -534,7 +550,7 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
 
-        /** RVN Start **/
+        /** PHL Start **/
         // Burn Amounts
         nIssueAssetBurnAmount = 500 * COIN;
         nReissueAssetBurnAmount = 100 * COIN;
@@ -556,7 +572,7 @@ public:
         nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
         nMinReorganizationPeers = 4;
         nMinReorganizationAge = 60 * 60 * 12; // 12 hours
-        /** RVN End **/
+        /** PHL End **/
     }
 };
 

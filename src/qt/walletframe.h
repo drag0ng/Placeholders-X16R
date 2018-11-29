@@ -95,11 +95,11 @@ public Q_SLOTS:
     /** Pass on signal over requested out-of-sync-warning information */
     void outOfSyncWarningClicked();
 
-    /** RVN START */
+    /** PHL START */
 
     /** Switch to assets page */
     void gotoAssetsPage();
-    /** RVN END */
+    /** PHL END */
 };
 
 #endif // PLACEH_QT_WALLETFRAME_H

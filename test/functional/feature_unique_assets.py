@@ -40,7 +40,7 @@ class UniqueAssetTest(PlacehTestFramework):
         self.num_nodes = 3
 
     def activate_assets(self):
-        self.log.info("Generating RVN for node[0] and activating assets...")
+        self.log.info("Generating PHL for node[0] and activating assets...")
         n0 = self.nodes[0]
         n0.generate(432)
         self.sync_all()

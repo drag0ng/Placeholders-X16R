@@ -19,7 +19,7 @@ class AssetMempoolTest(PlacehTestFramework):
 
 
     def activate_assets(self):
-        self.log.info("Generating RVN and activating assets...")
+        self.log.info("Generating PHL and activating assets...")
         n0, n1 = self.nodes[0], self.nodes[1]
 
         n0.generate(1)

@@ -75,9 +75,9 @@ private:
     const PlatformStyle *platformStyle;
 
 
-    /** RVN START */
+    /** PHL START */
     AssetsDialog *assetsPage;
-    /** RVN END */
+    /** PHL END */
 
 public Q_SLOTS:
     /** Switch to overview (home) page */
@@ -123,10 +123,10 @@ public Q_SLOTS:
     void requestedSyncWarningInfo();
 
 
-    /** RVN START */
+    /** PHL START */
     /** Switch to assets page */
     void gotoAssetsPage();
-    /** RVN END */
+    /** PHL END */
 
 Q_SIGNALS:
     /** Signal that we want to show the main window */

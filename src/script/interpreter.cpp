@@ -1013,10 +1013,10 @@ bool EvalScript(std::vector<std::vector<unsigned char> >& stack, const CScript& 
                     }
                         break;
 
-                    /** RVN START */
-                    case OP_RVN_ASSET:
+                    /** PHL START */
+                    case OP_PHL_ASSET:
                         break;
-                    /** RVN END */
+                    /** PHL END */
 
 
                     default:
