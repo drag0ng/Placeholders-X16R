@@ -5,7 +5,7 @@ Setup
 ---------------------
 Placeholders Core is the original Placeholders client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Placeholders transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
 
-To download compiled binaries of the Placeholders Core and wallet, visit the [GitHub release page](https://github.com/PlacehProject/Placeholders/releases).
+To download compiled binaries of the Placeholders Core and wallet, visit the [GitHub release page](https://github.com/xagau/Placeholders-X16R/releases).
 
 Running
 ---------------------
@@ -98,20 +98,19 @@ To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dy
 
 ### Need Help?
 
-- See the documentation at the [Placeholders Wiki](https://placeh.wiki/wiki/Placeholders_Wiki)
 for help and more information.
-- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/PlaceholdersDev) or [Reddit](https://www.reddit.com/r/Placeholders/).
+- Ask for help on [Discord]https://discord.gg/eX8A77T, [Telegram](https://t.me/PlaceholdersDev) or [Reddit](https://www.reddit.com/r/Placeholders/).
 
 Building from source
 ---------------------
 The following are developer notes on how to build the Placeholders core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [Dependencies](https://github.com/PlacehProject/Placeholders/tree/master/doc/dependencies.md)
-- [OS X Build Notes](https://github.com/PlacehProject/Placeholders/tree/master/doc/build-osx.md)
-- [Unix Build Notes](https://github.com/PlacehProject/Placeholders/tree/master/doc/build-unix.md)
-- [Windows Build Notes](https://github.com/PlacehProject/Placeholders/tree/master/doc/build-windows.md)
-- [OpenBSD Build Notes](https://github.com/PlacehProject/Placeholders/tree/master/doc/build-openbsd.md)
-- [Gitian Building Guide](https://github.com/PlacehProject/Placeholders/tree/master/doc/gitian-building.md)
+- [Dependencies](https://github.com/xagau/Placeholders-X16R/tree/master/doc/dependencies.md)
+- [OS X Build Notes](https://github.com/xagau/Placeholders-X16R/tree/master/doc/build-osx.md)
+- [Unix Build Notes](https://github.com/xagau/Placeholders-X16R/tree/master/doc/build-unix.md)
+- [Windows Build Notes](https://github.com/xagau/Placeholders-X16R/tree/master/doc/build-windows.md)
+- [OpenBSD Build Notes](https://github.com/xagau/Placeholders-X16R/tree/master/doc/build-openbsd.md)
+- [Gitian Building Guide](https://github.com/xagau/Placeholders-X16R/tree/master/doc/gitian-building.md)
 
 Development
 ---------------------
