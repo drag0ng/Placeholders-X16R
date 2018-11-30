@@ -333,23 +333,22 @@ void PlacehGUI::createActions()
     tabGroup->addAction(assetAction);
     /** PHL END */
 	
-    /** PHL START */
+    /** PHL START 
     repositoryAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("&Repository"), this);
     repositoryAction->setStatusTip(tr("Manage Repository"));
     repositoryAction->setToolTip(repositoryAction->statusTip());
     repositoryAction->setCheckable(true);
     repositoryAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(repositoryAction);
-    /** PHL END */	
-
-    /** PHL START */
+    
+    
     artifactManagementAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("&Artifact Management"), this);
     artifactManagementAction->setStatusTip(tr("Artifact Management"));
     artifactManagementAction->setToolTip(artifactManagementAction->statusTip());
     artifactManagementAction->setCheckable(true);
     artifactManagementAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(artifactManagementAction);
-    /** PHL END */	
+    PHL END */	
 
 #ifdef ENABLE_WALLET
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins

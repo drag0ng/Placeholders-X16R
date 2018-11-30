@@ -1159,13 +1159,9 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 5000 * COIN;
-
+    CAmount nSubsidy = 5000 * COIN; // Maintain Raven consistency for genesis block
+		
 	if( nHeight >= 1 ) { // once we reach the same # of coins as the old chain, reduce down to the expected block reward. 
-		nSubsidy = 2500000 * COIN;
-	}
-	
-	if( nHeight >= 2 ) { // once we reach the same # of coins as the old chain, reduce down to the expected block reward. 
 		nSubsidy = 5 * COIN;
 	}
     // Subsidy is cut in half every 888888 blocks which will occur approximately every 4 years.

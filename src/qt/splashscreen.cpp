@@ -30,6 +30,8 @@
 SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) :
     QWidget(0, f), curAlignment(0)
 {
+	std::cout << "Starting QT A" << std::endl;
+	
     // set reference point, paddings
     int paddingRight            = 50;
     int paddingTop              = 50;
@@ -41,6 +43,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
 #if QT_VERSION > 0x050100
     devicePixelRatio = ((QGuiApplication*)QCoreApplication::instance())->devicePixelRatio();
 #endif
+	std::cout << "Starting QT B" << std::endl;
 
     // define text to place
     QString titleText       = tr(PACKAGE_NAME);
@@ -54,6 +57,8 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     QSize splashSize(480*devicePixelRatio,320*devicePixelRatio);
     pixmap = QPixmap(splashSize);
 
+	std::cout << "Starting QT C" << std::endl;
+	
 #if QT_VERSION > 0x050100
     // change to HiDPI if it makes sense
     pixmap.setDevicePixelRatio(devicePixelRatio);
@@ -70,10 +75,11 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     pixPaint.fillRect(rGradient, gradient);
 
     // draw the placeh icon, expected size of PNG: 1024x1024
-    QRect rectIcon(QPoint(-40,0), QSize(310,310));
+    QRect rectIcon(QPoint(-40,0), QSize(520,520));
 
-    const QSize requiredSize(1024,1024);
+    const QSize requiredSize(520,520);
     QPixmap icon(networkStyle->getSplashIcon().pixmap(requiredSize));
+	std::cout << "Starting QT D" << std::endl;
 
     pixPaint.drawPixmap(rectIcon, icon);
 
@@ -90,6 +96,8 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     titleTextWidth  = fm.width(titleText);
     pixPaint.drawText(pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight,paddingTop,titleText);
 
+	std::cout << "Starting QT E" << std::endl;
+	
     pixPaint.setFont(QFont(font, 15*fontFactor));
 
     // if the version string is to long, reduce size
@@ -110,6 +118,8 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
         pixPaint.drawText(copyrightRect, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, copyrightText);
     }
 
+	std::cout << "Starting QT F" << std::endl;
+	
     // draw additional text if special network
     if(!titleAddText.isEmpty()) {
         QFont boldFont = QFont(font, 10*fontFactor);
