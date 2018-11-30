@@ -79,11 +79,7 @@ The GUI wallet requires the QR Code encoding library and Google's data interchan
 
 3) Drag Placeholder Core icon to the Applications Folder
 
-![alt tag](https://i.imgur.com/GLhBFUV.png)
-
 4) Open the Applications folder and Launch Placeholder Core. The client will begin synchronizing with the network.
-
-![alt tag](https://i.imgur.com/v3962qo.png)
 
 Note: You may get the follow error on first launch:
 ```
@@ -96,7 +92,7 @@ To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dy
 
 ### Windows
 
-1) Download windows-x86_64.zip and unpack executables to desired folder.
+1) Download windows setup file and unpack executables to desired folder.
 
 2) Double click the placeh-qt.exe to launch it.
 
@@ -105,7 +101,6 @@ To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dy
 - See the documentation at the [Placeholders Wiki](https://placeh.wiki/wiki/Placeholders_Wiki)
 for help and more information.
 - Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/PlaceholdersDev) or [Reddit](https://www.reddit.com/r/Placeholders/).
-- Ask for help on the [PlaceholdersTalk](https://www.placehcointalk.org/) forums, in the [Development and Technical discussion board](https://www.placehcointalk.org/?forum=661517).
 
 Building from source
 ---------------------
@@ -120,35 +115,32 @@ The following are developer notes on how to build the Placeholders core software
 
 Development
 ---------------------
-Placeholders repo's [root README](https://github.com/PlacehProject/Placeholders/blob/master/README.md) contains relevant information on the development process and automated testing.
+Placeholders repo's [root README](https://github.com/xagau/Placeholders-X16R/blob/master/README.md) contains relevant information on the development process and automated testing.
 
-- [Developer Notes](https://github.com/PlacehProject/Placeholders/blob/master/doc/developer-notes.md)
-- [Release Notes](https://github.com/PlacehProject/Placeholders/blob/master/doc/release-notes.md)
-- [Release Process](https://github.com/PlacehProject/Placeholders/blob/master/doc/release-process.md)
+- [Developer Notes](https://github.com/xagau/Placeholders-X16R/blob/master/doc/developer-notes.md)
+- [Release Notes](https://github.com/xagau/Placeholders-X16R/blob/master/doc/release-notes.md)
+- [Release Process](https://github.com/xagau/Placeholders-X16R/blob/master/doc/release-process.md)
 - [Source Code Documentation (External Link)](https://dev.visucore.com/placeh/doxygen/) -- 2018-05-11 -- Broken link
-- [Translation Process](https://github.com/PlacehProject/Placeholders/blob/master/doc/translation_process.md)
-- [Translation Strings Policy](https://github.com/PlacehProject/Placeholders/blob/master/doc/translation_strings_policy.md)
-- [Travis CI](https://github.com/PlacehProject/Placeholders/blob/master/doc/travis-ci.md)
-- [Unauthenticated REST Interface](https://github.com/PlacehProject/Placeholders/blob/master/doc/REST-interface.md)
-- [Shared Libraries](https://github.com/PlacehProject/Placeholders/blob/master/doc/shared-libraries.md)
-- [BIPS](https://github.com/PlacehProject/Placeholders/blob/master/doc/bips.md)
-- [Dnsseed Policy](https://github.com/PlacehProject/Placeholders/blob/master/doc/dnsseed-policy.md)
-- [Benchmarking](https://github.com/PlacehProject/Placeholders/blob/master/doc/benchmarking.md)
+- [Translation Process](https://github.com/xagau/Placeholders-X16R/blob/master/doc/translation_process.md)
+- [Translation Strings Policy](https://github.com/xagau/Placeholders-X16R/blob/master/doc/translation_strings_policy.md)
+- [Travis CI](https://github.com/xagau/Placeholders-X16R/blob/master/doc/travis-ci.md)
+- [Unauthenticated REST Interface](https://github.com/xagau/Placeholders-X16R/blob/master/doc/REST-interface.md)
+- [Shared Libraries](https://github.com/xagau/Placeholders-X16R/blob/master/doc/shared-libraries.md)
+- [BIPS](https://github.com/xagau/Placeholders-X16R/blob/master/doc/bips.md)
+- [Dnsseed Policy](https://github.com/xagau/Placeholders-X16R/blob/master/doc/dnsseed-policy.md)
+- [Benchmarking](https://github.com/xagau/Placeholders-X16R/blob/master/doc/benchmarking.md)
 
 ### Resources
-- Discuss on the [PlaceholdersTalk](https://www.placehcointalk.org/) forums, in the [Development & Technical Discussion board](https://www.placehcointalk.org/?forum=661517).
-- Discuss on chat [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/PlaceholdersDev) or [Reddit](https://www.reddit.com/r/Placeholders/).
-- Find out more on the [Placeholders Wiki](https://placeh.wiki/wiki/Placeholders_Wiki)
-- Visit the project home [Placeholders.org](https://placeh.io)
+- Visit the project home [placeh.io](https://placeh.io)
 
 ### Miscellaneous
-- [Assets Attribution](https://github.com/PlacehProject/Placeholders/blob/master/doc/assets-attribution.md)
-- [Files](https://github.com/PlacehProject/Placeholders/blob/master/doc/files.md)
-- [Fuzz-testing](https://github.com/PlacehProject/Placeholders/blob/master/doc/fuzzing.md)
-- [Reduce Traffic](https://github.com/PlacehProject/Placeholders/blob/master/doc/reduce-traffic.md)
-- [Tor Support](https://github.com/PlacehProject/Placeholders/blob/master/doc/tor.md)
-- [Init Scripts (systemd/upstart/openrc)](https://github.com/PlacehProject/Placeholders/blob/master/doc/init.md)
-- [ZMQ](https://github.com/PlacehProject/Placeholders/blob/master/doc/zmq.md)
+- [Assets Attribution](https://github.com/xagau/Placeholders-X16R/blob/master/doc/assets-attribution.md)
+- [Files](https://github.com/xagau/Placeholders-X16R/blob/master/doc/files.md)
+- [Fuzz-testing](https://github.com/xagau/Placeholders-X16R/blob/master/doc/fuzzing.md)
+- [Reduce Traffic](https://github.com/xagau/Placeholders-X16R/blob/master/doc/reduce-traffic.md)
+- [Tor Support](https://github.com/xagau/Placeholders-X16R/blob/master/doc/tor.md)
+- [Init Scripts (systemd/upstart/openrc)](https://github.com/xagau/Placeholders-X16R/blob/master/doc/init.md)
+- [ZMQ](https://github.com/xagau/Placeholders-X16R/blob/master/doc/zmq.md)
 
 License
 ---------------------
