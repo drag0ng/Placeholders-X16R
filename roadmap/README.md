@@ -3,13 +3,13 @@
 ### Phase 1 - Complete
 
 Placeholders (PHL) is a Proof of Work coin built on the Bitcoin UTXO model. As with other Bitcoin derivatives, PHL coins are distributed to persons augmenting the Placeh network by mining Placeh.
-*  x1000 coin distribution (21 Billion Total)
+*  x5 coin distribution (11 Million Total)
 *  10x faster blocks (1 per minute)
 *  In app CPU mining
 *  Dark Gravity Wave difficulty adjustment (180 block average)
 *  Addresses start with R... for regular addresses, or r... for multisig
-*  Network Port: 8767
-*  RPC Port: 8766
+*  Network Port: 6705
+*  RPC Port: 6706
 
 ### Phase 2 - Assets (in progress)
 
