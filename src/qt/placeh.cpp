@@ -115,6 +115,10 @@ static QString GetLangTerritory()
 /** Set up translations */
 static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTranslator, QTranslator &translatorBase, QTranslator &translator)
 {
+	//QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to InitTransactions.");
+	//msgBoxD.exec();
+	
     // Remove old translators
     QApplication::removeTranslator(&qtTranslatorBase);
     QApplication::removeTranslator(&qtTranslator);
@@ -272,12 +276,20 @@ PlacehCore::PlacehCore():
 
 void PlacehCore::handleRunawayException(const std::exception *e)
 {
+	//	QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to Runaway exception.");
+	//msgBoxD.exec();
+
     PrintExceptionContinue(e, "Runaway exception");
     Q_EMIT runawayException(QString::fromStdString(GetWarnings("gui")));
 }
 
 bool PlacehCore::baseInitialize()
 {
+	//	QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to baseInitialize A.");
+	//msgBoxD.exec();
+	
     if (!AppInitBasicSetup())
     {
         return false;
@@ -402,13 +414,31 @@ void PlacehApplication::createSplashScreen(const NetworkStyle *networkStyle)
     SplashScreen *splash = new SplashScreen(0, networkStyle);
     // We don't hold a direct pointer to the splash screen after creation, but the splash
     // screen will take care of deleting itself when slotFinish happens.
+	//	QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to createSplashScreen A.");
+	//msgBoxD.exec();
+	
     splash->show();
+
+	//	QMessageBox msgBoxE;
+	//msgBoxE.setText("Called Show.");
+	//msgBoxE.exec();
+	
     connect(this, SIGNAL(splashFinished(QWidget*)), splash, SLOT(slotFinish(QWidget*)));
     connect(this, SIGNAL(requestedShutdown()), splash, SLOT(close()));
+
+	//	QMessageBox msgBoxF;
+	//msgBoxF.setText("Called Connect.");
+	//msgBoxF.exec();
+	
 }
 
 void PlacehApplication::startThread()
 {
+	//	QMessageBox msgBoxE;
+	//msgBoxE.setText("Start Thread.");
+	//msgBoxE.exec();
+	
     if(coreThread)
         return;
     coreThread = new QThread(this);
@@ -425,6 +455,10 @@ void PlacehApplication::startThread()
     connect(this, SIGNAL(stopThread()), executor, SLOT(deleteLater()));
     connect(this, SIGNAL(stopThread()), coreThread, SLOT(quit()));
 
+	//	QMessageBox msgBoxF;
+	//msgBoxF.setText("Did all the threading connect stuff - Start Thread.");
+	//msgBoxF.exec();
+	
     coreThread->start();
 }
 
@@ -436,6 +470,10 @@ void PlacehApplication::parameterSetup()
 
 void PlacehApplication::requestInitialize()
 {
+	//QMessageBox msgBoxE;
+	//msgBoxE.setText("request Initialize Thread.");
+	//msgBoxE.exec();	
+	
     qDebug() << __func__ << ": Requesting initialize";
     startThread();
     Q_EMIT requestedInitialize();
@@ -701,14 +739,28 @@ int main(int argc, char *argv[])
     if (gArgs.GetBoolArg("-splash", DEFAULT_SPLASHSCREEN) && !gArgs.GetBoolArg("-min", false))
         app.createSplashScreen(networkStyle.data());
 
+	//QMessageBox msgBoxH;
+	//msgBoxH.setText("Call createSplashFinished.");
+	//msgBoxH.exec();
+			
     int rv = EXIT_SUCCESS;
     try
     {
+		//QMessageBox msgBoxA;
+		//msgBoxA.setText("Call createWindow.");
+		//msgBoxA.exec();
         app.createWindow(networkStyle.data());
         // Perform base initialization before spinning up initialization/shutdown thread
         // This is acceptable because this function only contains steps that are quick to execute,
         // so the GUI thread won't be held up.
+		//QMessageBox msgBoxG;
+		//msgBoxG.setText("Call baseInitialize.");
+		//msgBoxG.exec();
+		
         if (PlacehCore::baseInitialize()) {
+			//QMessageBox msgBoxZ;
+			//msgBoxZ.setText("Call baseInitialize.");
+			//msgBoxZ.exec();
             app.requestInitialize();
 #if defined(Q_OS_WIN) && QT_VERSION >= 0x050000
             WinShutdownMonitor::registerShutdownBlockReason(QObject::tr("%1 didn't yet exit safely...").arg(QObject::tr(PACKAGE_NAME)), (HWND)app.getMainWinId());
@@ -718,10 +770,17 @@ int main(int argc, char *argv[])
             app.exec();
             rv = app.getReturnValue();
         } else {
+			//QMessageBox msgBoxZ;
+			//msgBoxZ.setText("Error occurred in baseInitialize baseInitialize.");
+			//msgBoxZ.exec();
             // A dialog with detailed error will have been shown by InitError()
             rv = EXIT_FAILURE;
         }
     } catch (const std::exception& e) {
+		//QMessageBox msgBoxE;
+		//msgBoxE.setText("Main Exception.");
+		//msgBoxE.exec();
+		
         PrintExceptionContinue(&e, "Runaway exception");
         app.handleRunawayException(QString::fromStdString(GetWarnings("gui")));
     } catch (...) {

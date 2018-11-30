@@ -92,6 +92,9 @@ size_t nCoinCacheUsage = 5 * 300;
 uint64_t nPruneTarget = 0;
 int64_t nMaxTipAge = DEFAULT_MAX_TIP_AGE;
 bool fEnableReplacement = DEFAULT_ENABLE_REPLACEMENT;
+uint64_t nPIP89ActivationBlockHeight = 1;
+CAmount __SNAPSHOT_HEIGHT = 500000;
+CAmount __SNAPSHOT_COIN   = __SNAPSHOT_HEIGHT * 5;
 
 uint256 hashAssumeValid;
 arith_uint256 nMinimumChainWork;
@@ -1152,6 +1155,8 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
     return true;
 }
 
+
+
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
@@ -1161,7 +1166,10 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 
     CAmount nSubsidy = 5000 * COIN; // Maintain Raven consistency for genesis block
 		
-	if( nHeight >= 1 ) { // once we reach the same # of coins as the old chain, reduce down to the expected block reward. 
+	if( nHeight >= nPIP89ActivationBlockHeight ) { // once we reach the same height as the legacy chain, reduce down to the expected block reward. 
+		nSubsidy = __SNAPSHOT_COIN * COIN;
+	}
+	if( nHeight >= 2 ) { // reduce down to the expected block reward. 
 		nSubsidy = 5 * COIN;
 	}
     // Subsidy is cut in half every 888888 blocks which will occur approximately every 4 years.
@@ -5161,7 +5169,11 @@ double GuessVerificationProgress(const ChainTxData& data, CBlockIndex *pindex) {
 
 /** PHL START */
 bool AreAssetsDeployed() {
-
+	
+	bool blocker = true;
+	if( blocker ) {
+		return false;
+	}
     if (fAssetsIsActive)
         return true;
 

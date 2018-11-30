@@ -319,6 +319,13 @@ void OverviewPage::showAssets()
 
 void OverviewPage::displayAssetInfo()
 {
+	bool blocker = true;
+		
+	if( blocker ) {
+		hideAssetInfo();
+		return;
+	}
+	
     ui->assetInfoTitleLabel->setText("<b>" + tr("Asset Activation Status") + "</b>");
     ui->assetInfoPercentageLabel->setText(tr("Current Percentage") + ":");
     ui->assetInfoStatusLabel->setText(tr("Status") + ":");

@@ -131,12 +131,28 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
     platformStyle(_platformStyle)
 
 {
+	//QMessageBox msgBoxC;
+	//msgBoxC.setText("Got to placehgui - create main frame.");
+	//msgBoxC.exec();
+
     QSettings settings;
     if (!restoreGeometry(settings.value("MainWindowGeometry").toByteArray())) {
         // Restore failed (perhaps missing setting), center the window
-        move(QApplication::desktop()->availableGeometry().center() - frameGeometry().center());
+        	//QMessageBox msgBoxY;
+			//msgBoxY.setText("Got to placehgui - calling move create main frame.");
+			//msgBoxY.exec();
+			
+		move(QApplication::desktop()->availableGeometry().center() - frameGeometry().center());
+
+		//QMessageBox msgBoxZ;
+		//	msgBoxZ.setText("Got to placehgui - calling move - DONE create main frame.");
+	//		msgBoxZ.exec();
     }
 
+		//QMessageBox msgBoxZ;
+		//	msgBoxZ.setText("Got to placehgui - AFTER RESTORE - DONE create main frame.");
+		//	msgBoxZ.exec();
+	
     QString windowTitle = tr(PACKAGE_NAME) + " - ";
 #ifdef ENABLE_WALLET
     enableWallet = WalletModel::isWalletEnabled();
@@ -162,8 +178,20 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
     setUnifiedTitleAndToolBarOnMac(true);
 #endif
 
+	//QMessageBox msgBoxG;
+	//msgBoxG.setText("Got to placehgui - MAKE RPCConsole dialog create main frame .");
+	//msgBoxG.exec();
+	
     rpcConsole = new RPCConsole(_platformStyle, 0);
-    helpMessageDialog = new HelpMessageDialog(this, false);
+    //QMessageBox msgBoxM;
+	//msgBoxM.setText("Got to placehgui - AFTER MAKE RPCConsole dialog create main frame .");
+	//msgBoxM.exec();
+	
+	//helpMessageDialog = new HelpMessageDialog(this, false);
+	//QMessageBox msgBoxB;
+	//msgBoxB.setText("Got to placehgui - setup help dialog create main frame .");
+	//msgBoxB.exec();
+
 #ifdef ENABLE_WALLET
     if(enableWallet)
     {
@@ -201,6 +229,10 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
     // Disable size grip because it looks ugly and nobody needs it
     statusBar()->setSizeGripEnabled(false);
 
+	//QMessageBox msgBoxX;
+	//msgBoxX.setText("Got to placehgui - setup menu create main frame .");
+	//msgBoxX.exec();
+	
     // Status bar notification icons
     QFrame *frameBlocks = new QFrame();
     frameBlocks->setContentsMargins(0,0,0,0);
@@ -234,6 +266,10 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
     progressBar->setAlignment(Qt::AlignCenter);
     progressBar->setVisible(false);
 
+	//QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to placehgui - setup bars create main frame .");
+	//msgBoxD.exec();
+	
     // Override style sheet for progress bar for styles that have a segmented progress bar,
     // as they make the text unreadable (workaround for issue #1071)
     // See https://qt-project.org/doc/qt-4.8/gallery.html
@@ -254,7 +290,12 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
     setWalletActionsEnabled(false);
 
     // Subscribe to notifications from core
+
     subscribeToCoreSignals();
+
+	//QMessageBox msgBoxR;
+	//msgBoxR.setText("Got to placehgui - subscribeToCoreSignals create main frame .");
+	//msgBoxR.exec();
 
     connect(connectionsControl, SIGNAL(clicked(QPoint)), this, SLOT(toggleNetworkActive()));
 
@@ -266,6 +307,9 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
         connect(progressBar, SIGNAL(clicked(QPoint)), this, SLOT(showModalOverlay()));
     }
 #endif
+	//QMessageBox msgBoxA;
+	//msgBoxA.setText("Got to placehgui - create main frame - END.");
+	//msgBoxA.exec();
 }
 
 PlacehGUI::~PlacehGUI()
@@ -534,7 +578,7 @@ void PlacehGUI::setClientModel(ClientModel *_clientModel)
         // Show progress dialog
         connect(_clientModel, SIGNAL(showProgress(QString,int)), this, SLOT(showProgress(QString,int)));
 
-        rpcConsole->setClientModel(_clientModel);
+        // PHL rpcConsole->setClientModel(_clientModel);
 #ifdef ENABLE_WALLET
         if(walletFrame)
         {
@@ -561,7 +605,7 @@ void PlacehGUI::setClientModel(ClientModel *_clientModel)
             trayIconMenu->clear();
         }
         // Propagate cleared model to child objects
-        rpcConsole->setClientModel(nullptr);
+        // PHL rpcConsole->setClientModel(nullptr);
 #ifdef ENABLE_WALLET
         if (walletFrame)
         {

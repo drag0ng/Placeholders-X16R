@@ -22,6 +22,8 @@
 #include "wallet/wallet.h"
 #endif
 
+#include <QMessageBox>
+#include <QDebug>
 #include <QApplication>
 #include <QCloseEvent>
 #include <QDesktopWidget>
@@ -31,7 +33,13 @@
 SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) :
     QWidget(0, f), curAlignment(0)
 {
-	std::cout << "Starting QT A" << std::endl;
+	
+	qDebug() << "Starting QT A:" ;
+	//QMessageBox msgBoxA;
+	//msgBoxA.setText("Got to A.");
+	//msgBoxA.exec();
+
+	//std::cout << "Starting QT A" << std::endl;
 	
     // set reference point, paddings
     int paddingRight            = 50;
@@ -44,7 +52,8 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
 #if QT_VERSION > 0x050100
     devicePixelRatio = ((QGuiApplication*)QCoreApplication::instance())->devicePixelRatio();
 #endif
-	std::cout << "Starting QT B" << std::endl;
+	//std::cout << "Starting QT B" << std::endl;
+	qDebug() << "Starting QT A:" ;
 
     // define text to place
     QString titleText       = tr(PACKAGE_NAME);
@@ -58,7 +67,8 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     QSize splashSize(480*devicePixelRatio,320*devicePixelRatio);
     pixmap = QPixmap(splashSize);
 
-	std::cout << "Starting QT C" << std::endl;
+	qDebug() << "Starting QT C:" ;
+
 	
 #if QT_VERSION > 0x050100
     // change to HiDPI if it makes sense
@@ -80,10 +90,15 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
 
     const QSize requiredSize(520,520);
     QPixmap icon(networkStyle->getSplashIcon().pixmap(requiredSize));
-	std::cout << "Starting QT D" << std::endl;
+	//std::cout << "Starting QT D" << std::endl;
+	qDebug() << "Starting QT A:" ;
 
     pixPaint.drawPixmap(rectIcon, icon);
 
+	//QMessageBox msgBoxB;
+	//msgBoxB.setText("Got to B.");
+	//msgBoxB.exec();
+	
     // check font size and drawing with
     pixPaint.setFont(QFont(font, 33*fontFactor));
     QFontMetrics fm = pixPaint.fontMetrics();
@@ -97,7 +112,9 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     titleTextWidth  = fm.width(titleText);
     pixPaint.drawText(pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight,paddingTop,titleText);
 
-	std::cout << "Starting QT E" << std::endl;
+	qDebug() << "Starting QT E:" ;
+
+	//std::cout << "Starting QT E" << std::endl;
 	
     pixPaint.setFont(QFont(font, 15*fontFactor));
 
@@ -119,7 +136,9 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
         pixPaint.drawText(copyrightRect, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, copyrightText);
     }
 
-	std::cout << "Starting QT F" << std::endl;
+	qDebug() << "Starting QT F:" ;
+
+	//std::cout << "Starting QT F" << std::endl;
 	
     // draw additional text if special network
     if(!titleAddText.isEmpty()) {
@@ -144,6 +163,11 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
 
     subscribeToCoreSignals();
     installEventFilter(this);
+
+	//QMessageBox msgBoxC;
+	//msgBoxC.setText("Got to C.");
+	//msgBoxC.exec();
+
 }
 
 SplashScreen::~SplashScreen()
@@ -175,6 +199,10 @@ void SplashScreen::slotFinish(QWidget *mainWin)
 
 static void InitMessage(SplashScreen *splash, const std::string &message)
 {
+	//	QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to InitMessage.");
+	//msgBoxD.exec();
+
     QMetaObject::invokeMethod(splash, "showMessage",
         Qt::QueuedConnection,
         Q_ARG(QString, QString::fromStdString(message)),
@@ -184,6 +212,10 @@ static void InitMessage(SplashScreen *splash, const std::string &message)
 
 static void ShowProgress(SplashScreen *splash, const std::string &title, int nProgress, bool resume_possible)
 {
+	//	QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to ShowProgress.");
+	//msgBoxD.exec();
+	
     InitMessage(splash, title + std::string("\n") +
             (resume_possible ? _("(press q to shutdown and continue later)")
                                 : _("press q to shutdown")) +
@@ -193,6 +225,10 @@ static void ShowProgress(SplashScreen *splash, const std::string &title, int nPr
 #ifdef ENABLE_WALLET
 void SplashScreen::ConnectWallet(CWallet* wallet)
 {
+	//	QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to ConnectWallet.");
+	//msgBoxD.exec();
+
     wallet->ShowProgress.connect(boost::bind(ShowProgress, this, _1, _2, false));
     connectedWallets.push_back(wallet);
 }
@@ -201,6 +237,10 @@ void SplashScreen::ConnectWallet(CWallet* wallet)
 void SplashScreen::subscribeToCoreSignals()
 {
     // Connect signals to client
+	//	QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to subscribeToCoreSignals.");
+	//msgBoxD.exec();
+	
     uiInterface.InitMessage.connect(boost::bind(InitMessage, this, _1));
     uiInterface.ShowProgress.connect(boost::bind(ShowProgress, this, _1, _2, _3));
 #ifdef ENABLE_WALLET
@@ -222,6 +262,10 @@ void SplashScreen::unsubscribeFromCoreSignals()
 
 void SplashScreen::showMessage(const QString &message, int alignment, const QColor &color)
 {
+	//QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to showMessage.");
+	//msgBoxD.exec();
+	
     curMessage = message;
     curAlignment = alignment;
     curColor = color;
@@ -230,11 +274,20 @@ void SplashScreen::showMessage(const QString &message, int alignment, const QCol
 
 void SplashScreen::paintEvent(QPaintEvent *event)
 {
+	//QMessageBox msgBoxD;
+	//msgBoxD.setText("Got to D.");
+	//msgBoxD.exec();
+	
     QPainter painter(this);
     painter.drawPixmap(0, 0, pixmap);
     QRect r = rect().adjusted(5, 5, -5, -5);
     painter.setPen(curColor);
     painter.drawText(r, curAlignment, curMessage);
+
+	//QMessageBox msgBoxE;
+	//msgBoxE.setText("Got to E.");
+	//msgBoxE.exec();
+	
 }
 
 void SplashScreen::closeEvent(QCloseEvent *event)
