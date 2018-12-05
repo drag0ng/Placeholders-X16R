@@ -5,7 +5,7 @@ includedir=${prefix}/include
 
 Name: Placeholder Core consensus library
 Description: Library for the Placeh consensus protocol.
-Version: 2.1.3
+Version: 2.0.27
 Libs: -L${libdir} -lplacehconsensus
 Cflags: -I${includedir}
 Requires.private: libcrypto
