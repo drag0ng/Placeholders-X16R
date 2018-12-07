@@ -229,9 +229,6 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
     // Disable size grip because it looks ugly and nobody needs it
     statusBar()->setSizeGripEnabled(false);
 
-	//QMessageBox msgBoxX;
-	//msgBoxX.setText("Got to placehgui - setup menu create main frame .");
-	//msgBoxX.exec();
 	
     // Status bar notification icons
     QFrame *frameBlocks = new QFrame();
@@ -245,52 +242,90 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
     labelWalletHDStatusIcon = new QLabel();
     connectionsControl = new GUIUtil::ClickableLabel();
     labelBlocksIcon = new GUIUtil::ClickableLabel();
-    if(enableWallet)
-    {
-        frameBlocksLayout->addStretch();
-        frameBlocksLayout->addWidget(unitDisplayControl);
-        frameBlocksLayout->addStretch();
-        frameBlocksLayout->addWidget(labelWalletEncryptionIcon);
-        frameBlocksLayout->addWidget(labelWalletHDStatusIcon);
-    }
-    frameBlocksLayout->addStretch();
-    frameBlocksLayout->addWidget(connectionsControl);
-    frameBlocksLayout->addStretch();
-    frameBlocksLayout->addWidget(labelBlocksIcon);
-    frameBlocksLayout->addStretch();
+	//QMessageBox msgBoxU;
+	//msgBoxU.setText("Got to U placehgui - setup menu create main frame .");
+	//msgBoxU.exec();
 
-    // Progress bar and label for blocks download
-    progressBarLabel = new QLabel();
-    progressBarLabel->setVisible(false);
-    progressBar = new GUIUtil::ProgressBar();
-    progressBar->setAlignment(Qt::AlignCenter);
-    progressBar->setVisible(false);
+	try { 
+		if(enableWallet)
+		{
+			frameBlocksLayout->addStretch();
+			frameBlocksLayout->addWidget(unitDisplayControl);
+			frameBlocksLayout->addStretch();
+			frameBlocksLayout->addWidget(labelWalletEncryptionIcon);
+			frameBlocksLayout->addWidget(labelWalletHDStatusIcon);
+		}
+		frameBlocksLayout->addStretch();
+		frameBlocksLayout->addWidget(connectionsControl);
+		frameBlocksLayout->addStretch();
+		frameBlocksLayout->addWidget(labelBlocksIcon);
+		frameBlocksLayout->addStretch();
+	
+		// Progress bar and label for blocks download
+		progressBarLabel = new QLabel();
+		progressBarLabel->setVisible(false);
+		progressBar = new GUIUtil::ProgressBar();
+		progressBar->setAlignment(Qt::AlignCenter);
+		progressBar->setVisible(false);
+	
+	} catch( ... ) {
+		//QMessageBox msgBoxD;
+		//msgBoxD.setText("Got to placehgui - setup bars create main frame .");
+		//msgBoxD.exec();
+		
+	}
 
-	//QMessageBox msgBoxD;
-	//msgBoxD.setText("Got to placehgui - setup bars create main frame .");
-	//msgBoxD.exec();
+		
 	
     // Override style sheet for progress bar for styles that have a segmented progress bar,
     // as they make the text unreadable (workaround for issue #1071)
     // See https://qt-project.org/doc/qt-4.8/gallery.html
-    QString curStyle = QApplication::style()->metaObject()->className();
-    if(curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle")
-    {
-        progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
-    }
+	
+	try { 
+		//QMessageBox msgBoxD;
+		//msgBoxD.setText("INSIDE TRY.");
+		//msgBoxD.exec();
+		
+		QString curStyle = QApplication::style()->metaObject()->className();
+		if(curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle")
+		{	
+			progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
+		}
+		//QMessageBox msgBoxA;
+		//msgBoxA.setText("INSIDE TRY.AA");
+		//msgBoxA.exec();
 
-    statusBar()->addWidget(progressBarLabel);
-    statusBar()->addWidget(progressBar);
-    statusBar()->addPermanentWidget(frameBlocks);
+		statusBar()->addWidget(progressBarLabel);
+		statusBar()->addWidget(progressBar);
+		statusBar()->addPermanentWidget(frameBlocks);
 
-    // Install event filter to be able to catch status tip events (QEvent::StatusTip)
-    this->installEventFilter(this);
+		//QMessageBox msgBoxB;
+		//msgBoxB.setText("INSIDE TRY.BB");
+		//msgBoxB.exec();
+		// Install event filter to be able to catch status tip events (QEvent::StatusTip)
+		this->installEventFilter(this);
 
-    // Initially wallet actions should be disabled
-    setWalletActionsEnabled(false);
+		//QMessageBox msgBoxCC;
+		//msgBoxCC.setText("INSIDE TRY.CC");
+		//msgBoxCC.exec();
+		// Initially wallet actions should be disabled
+		setWalletActionsEnabled(false);
+		//QMessageBox msgBoxDD;
+		//msgBoxDD.setText("INSIDE TRY.DD");
+		//msgBoxDD.exec();
+	
+	} catch(...) {
+		QMessageBox msgBoxD;
+		msgBoxD.setText("AFTER EX.");
+		msgBoxD.exec();
+		
+	}
 
     // Subscribe to notifications from core
-
+	//QMessageBox msgBoxX;
+	//msgBoxX.setText("call subscribeToCoreSignals.");
+	//msgBoxX.exec();
+	
     subscribeToCoreSignals();
 
 	//QMessageBox msgBoxR;
@@ -369,14 +404,14 @@ void PlacehGUI::createActions()
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
-    /** PHL START
+    /** PHL START */
     assetAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("&Assets"), this);
     assetAction->setStatusTip(tr("Manage Assets"));
     assetAction->setToolTip(assetAction->statusTip());
     assetAction->setCheckable(true);
     assetAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
-    tabGroup->addAction(assetAction);
-     PHL END */
+    //tabGroup->addAction(assetAction);
+    /* PHL END */
 	
     /** PHL START 
     repositoryAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("&Repository"), this);
@@ -643,24 +678,30 @@ void PlacehGUI::removeAllWallets()
 
 void PlacehGUI::setWalletActionsEnabled(bool enabled)
 {
-    overviewAction->setEnabled(enabled);
-    sendCoinsAction->setEnabled(enabled);
-    sendCoinsMenuAction->setEnabled(enabled);
-    receiveCoinsAction->setEnabled(enabled);
-    receiveCoinsMenuAction->setEnabled(enabled);
-    historyAction->setEnabled(enabled);
-    encryptWalletAction->setEnabled(enabled);
-    backupWalletAction->setEnabled(enabled);
-    changePassphraseAction->setEnabled(enabled);
-    signMessageAction->setEnabled(enabled);
-    verifyMessageAction->setEnabled(enabled);
-    usedSendingAddressesAction->setEnabled(enabled);
-    usedReceivingAddressesAction->setEnabled(enabled);
-    openAction->setEnabled(enabled);
+	try { 
+	
+	
+		overviewAction->setEnabled(enabled);
+		sendCoinsAction->setEnabled(enabled);
+		sendCoinsMenuAction->setEnabled(enabled);
+		receiveCoinsAction->setEnabled(enabled);
+		receiveCoinsMenuAction->setEnabled(enabled);
+		historyAction->setEnabled(enabled);
+		encryptWalletAction->setEnabled(enabled);
+		backupWalletAction->setEnabled(enabled);
+		changePassphraseAction->setEnabled(enabled);
+		signMessageAction->setEnabled(enabled);
+		verifyMessageAction->setEnabled(enabled);
+		usedSendingAddressesAction->setEnabled(enabled);
+		usedReceivingAddressesAction->setEnabled(enabled);
+		openAction->setEnabled(enabled);
 
-    /** PHL START */
-    assetAction->setEnabled(false);
-    /** PHL END */
+		/** PHL START */
+		//assetAction->setEnabled(false);
+		/** PHL END */
+	} catch(...) {
+		
+	}
 }
 
 void PlacehGUI::createTrayIcon(const NetworkStyle *networkStyle)
