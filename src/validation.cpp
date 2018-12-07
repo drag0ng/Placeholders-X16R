@@ -1213,7 +1213,8 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 		nSubsidy = GetTailEmission();
 	}
 	
-	std::cout << "Currency Subsidy:" << nHeight << ":" << nSubsidy << std::endl;
+	// if debug
+	//std::cout << "Currency Subsidy:" << nHeight << ":" << nSubsidy << std::endl;
 
     return nSubsidy;
 }
