@@ -583,7 +583,7 @@ void PlacehGUI::createToolBars()
         toolbar->addAction(historyAction);
 
         /** PHL START */
-        toolbar->addAction(assetAction);
+        //toolbar->addAction(assetAction);
         /** PHL END */
         overviewAction->setChecked(true);
     }
@@ -613,7 +613,7 @@ void PlacehGUI::setClientModel(ClientModel *_clientModel)
         // Show progress dialog
         connect(_clientModel, SIGNAL(showProgress(QString,int)), this, SLOT(showProgress(QString,int)));
 
-        // PHL rpcConsole->setClientModel(_clientModel);
+        rpcConsole->setClientModel(_clientModel);
 #ifdef ENABLE_WALLET
         if(walletFrame)
         {
@@ -1157,6 +1157,7 @@ void PlacehGUI::checkAssets()
         assetAction->setToolTip(tr("Manage Assets"));
         }
     else {
+		assetAction->setVisible(false);
         assetAction->setDisabled(true);
         assetAction->setToolTip(tr("Assets not yet active"));
         }

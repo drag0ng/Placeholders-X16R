@@ -456,8 +456,18 @@ RPCConsole::RPCConsole(const PlatformStyle *_platformStyle, QWidget *parent) :
 
     // set library version labels
 #ifdef ENABLE_WALLET
+
     ui->berkeleyDBVersion->setText(DbEnv::version(0, 0, 0));
+	
+	//QMessageBox msgBoxA;
+	//msgBoxA.setText("ENABLE_WALLET is defined.");
+	//msgBoxA.exec();
+	
 #else
+	//QMessageBox msgBoxA;
+	//msgBoxA.setText("ENABLE_WALLET is NOT defined.");
+	//msgBoxA.exec();
+
     ui->label_berkeleyDBVersion->hide();
     ui->berkeleyDBVersion->hide();
 #endif
@@ -531,9 +541,17 @@ bool RPCConsole::eventFilter(QObject* obj, QEvent *event)
 
 void RPCConsole::setClientModel(ClientModel *model)
 {
+	//QMessageBox msgBoxA;
+	//msgBoxA.setText("setClientModel called - before IF.");
+	//msgBoxA.exec();
+	
     clientModel = model;
-    ui->trafficGraph->setClientModel(model);
+    //ui->trafficGraph->setClientModel(model);
     if (model && clientModel->getPeerTableModel() && clientModel->getBanTableModel()) {
+		//QMessageBox msgBoxB;
+		//msgBoxB.setText("setClientModel called - AFTER IF");
+		//msgBoxB.exec();
+	
         // Keep up to date with client
         setNumConnections(model->getNumConnections());
         connect(model, SIGNAL(numConnectionsChanged(int)), this, SLOT(setNumConnections(int)));
@@ -653,9 +671,19 @@ void RPCConsole::setClientModel(ClientModel *model)
         autoCompleter->popup()->installEventFilter(this);
         // Start thread to execute RPC commands.
         startExecutor();
-    }
+
+		//QMessageBox msgBoxC;
+		//msgBoxC.setText("setClientModel called - AFTER END");
+		//msgBoxC.exec();
+
+
+	}
     if (!model) {
-        // Client model is being set to 0, this means shutdown() is about to be called.
+
+		QMessageBox msgBoxC;
+		msgBoxC.setText("setClientModel called - SHUTDOWN?");
+		msgBoxC.exec();
+		// Client model is being set to 0, this means shutdown() is about to be called.
         // Make sure we clean up the executor thread
         Q_EMIT stopExecutor();
         thread.wait();
