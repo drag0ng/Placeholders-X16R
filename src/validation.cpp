@@ -1185,7 +1185,7 @@ CAmount GetTailEmission()
 
 CAmount GetDecayedEmission(CAmount nSubsidy, int nHeight)
 {		
-	return (nSubsidy - (nHeight * 0.000025)) * COIN;
+	return (nSubsidy - (nHeight * 0.00000025)) * COIN;
 }
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)

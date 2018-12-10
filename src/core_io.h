@@ -30,6 +30,7 @@ std::vector<unsigned char> ParseHexUV(const UniValue& v, const std::string& strN
 // core_write.cpp
 std::string ValueFromAmountString(const CAmount& amount, const int8_t units);
 UniValue ValueFromAmount(const CAmount& amount, const int8_t units);
+UniValue ValueFromAmount(const CAmount& amount, bool reserve, const int8_t units);
 UniValue ValueFromAmount(const CAmount& amount);
 std::string FormatScript(const CScript& script);
 std::string EncodeHexTx(const CTransaction& tx, const int serializeFlags = 0);

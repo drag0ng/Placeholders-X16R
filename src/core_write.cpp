@@ -18,6 +18,8 @@
 #include "utilmoneystr.h"
 #include "utilstrencodings.h"
 
+CAmount __SNAPSHOT_RESERVE_AMOUNT = 1485000 * COIN; // 42000 * 50 >> 33000 * 5
+
 std::string ValueFromAmountString(const CAmount& amount, const int8_t units)
 {
     bool sign = amount < 0;
@@ -38,6 +40,17 @@ UniValue ValueFromAmount(const CAmount& amount, const int8_t units)
 {
     return UniValue(UniValue::VNUM, ValueFromAmountString(amount, units));
 }
+
+UniValue ValueFromAmount(const CAmount& amount, bool reserve, const int8_t units)
+{
+	CAmount reserveAmount = __SNAPSHOT_RESERVE_AMOUNT;
+	if( reserve ) { 
+		return ValueFromAmount(amount-reserveAmount, 8);
+	} else {
+		return ValueFromAmount(amount, 8);		
+	}
+}
+
 
 UniValue ValueFromAmount(const CAmount& amount)
 {
