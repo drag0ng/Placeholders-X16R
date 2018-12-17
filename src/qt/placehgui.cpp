@@ -187,7 +187,7 @@ PlacehGUI::PlacehGUI(const PlatformStyle *_platformStyle, const NetworkStyle *ne
 	//msgBoxM.setText("Got to placehgui - AFTER MAKE RPCConsole dialog create main frame .");
 	//msgBoxM.exec();
 	
-	//helpMessageDialog = new HelpMessageDialog(this, false);
+	helpMessageDialog = new HelpMessageDialog(this, false);
 	//QMessageBox msgBoxB;
 	//msgBoxB.setText("Got to placehgui - setup help dialog create main frame .");
 	//msgBoxB.exec();
@@ -563,7 +563,7 @@ void PlacehGUI::createMenuBar()
     {
         help->addAction(openRPCConsoleAction);
     }
-    //help->addAction(showHelpMessageAction);
+    help->addAction(showHelpMessageAction);
     help->addSeparator();
     help->addAction(aboutAction);
     help->addAction(aboutQtAction);
